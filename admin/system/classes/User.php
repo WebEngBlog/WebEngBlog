@@ -41,9 +41,13 @@ class User {
 		}
 		
 		$db->prepareStatement("INSERT INTO user (name, password) VALUES (?, ?)", 
-				array($name, hash("md5", $password)), null, true);
+				array($name, $this->getHash($password)), null, true);
 		
 		return new User($db->getLastId(), $name);
+	}
+	
+	private function getHash($text) {
+		return hash("md5", $text);
 	}
 	
 	public static function getUser($id) {
