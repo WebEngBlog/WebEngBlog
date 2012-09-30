@@ -6,4 +6,8 @@ $classes = array(
 	"Database" => "system".S."database".S."Database.php"
 );
 
+include(ROOT.S."system".S."framework".S."rb.php");
+R::setup("mysql:host=localhost;dbname=blog", "root", "");
+//R::debug( true );
+
 ?>
