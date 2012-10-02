@@ -10,42 +10,16 @@ define("ROOT", implode(S, $parts));
 include(ROOT.S."system".S."Autoloader.php");
 include(ADMIN.S."system".S."classes.inc.php");
 
-Session::start();
+Session::getSession()->start();
 
-$name = $_POST["name"];
-$password = $_POST["password"];
-$msg = "";
-
-if (isset($_POST["register"])) {
-	$user = User::register($name, $password);
-
-	if ($user !== false) {
-		$msg = "erfolgreich";
-	} else {
-		$msg = "fehlgeschlagen	";
-	}
-
-} else if (isset($_POST["login"])) {
-	$user = User::login($name, $password);
-
-	if ($user !== false) {
-		$msg = "erfolgreich";
-	} else {
-		$msg = "fehlgeschlagen";
-	}
-} else if (isset($_POST["logout"])) {
-	Session::destroy();
-	$msg = "logged out";
+if (isset($_POST["action"])) {
+	Modul::loadModul($_POST["action"], ADMIN)->execute();
 }
 
-if (User::isLogedIn()) {
+if (User::isLoggedIn()) {
 	echo "logged in<br>";
-	echo '<form action="index.php" method="post"><input type="submit" name="logout" value="Logout"></form>';
-	exit(0);
+} else {
+	Modul::loadModul("login", ADMIN)->display();
 }
-
-
-include("login.html");
-
 
 ?>
