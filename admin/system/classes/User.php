@@ -17,18 +17,21 @@ class User {
 		if ($user->password === self::getHash($password)) {		
 			$ip = System::getIp();
 			$browser = System::getBrowser();
+			
+			$session = Session::getSession();
 
-			Session::setValue("userid", $user->id);
-			Session::setValue("username", $user->name);
-			Session::setValue("login", self::getHash($browser . $user->password . $ip));
+			$session->setValue("userid", $user->id);
+			$session->setValue("username", $user->name);
+			$session->setValue("login", self::getHash($browser . $user->password . $ip));
+			
+			return true;
 		} else {
 			return false;
 		}
-
 	}
-
+	
 	public static function logout() {
-
+		Session::destroy();
 	}
 
 	public static function register($name, $password) {
@@ -76,11 +79,12 @@ class User {
 		throw new BadMethodCallException("Not yet implemented");;
 	}
 	
-	public static function isLogedIn() {
-		$id = (int) Session::getValue("userid");
-		$name = Session::getValue("username");
-		$login = Session::getValue("login");
+	public static function isLoggedIn() {
+		$session = Session::getSession();
 		
+		$id = (int) $session->getValue("userid");
+		$name = $session->getValue("username");
+		$login = $session->getValue("login");
 		if (!isset($id) || !isset($name) || !isset($login)) {
 			return false;
 		}
@@ -98,11 +102,7 @@ class User {
 			return false;
 		}
 		
-		return true;
-	}
-	
-	public static function logout() {
-		Session::destroy();
+		return $user;
 	}
 }
 

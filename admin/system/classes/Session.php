@@ -4,14 +4,27 @@ class Session {
 	
 	const SECURE = false;
 	
-	private static $started = false;
+	private static $session = null;
+	
+	private $started = false;
 	
 	private function __construct() {
 	}
+	
+	/**
+	 * 
+	 * @return Session
+	 */
+	public static function getSession() {
+		if (self::$session === null) {
+			self::$session = new Session();
+		}
+		return self::$session;
+	}
 
-	public static function start() {
-		if (self::$started) {
-			throw new BadMethodCallException("session still started");
+	public function start() {
+		if ($this->started) {
+			return true;
 		}
 		
 		$session = "session";
@@ -20,23 +33,26 @@ class Session {
 		ini_set('session.use_only_cookies', 1);
 		
 		$cookieParams = session_get_cookie_params();
+				
+		session_set_cookie_params(60 * 15, $cookieParams["path"], $cookieParams["domain"], self::SECURE, $httponly);
 		
-		session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], self::SECURE, $httponly);
-
 		session_name($session);
 
-		session_start();
-
-		if (session_regenerate_id(true) === true) {
-			self::$started = true;
-			return true;
+		if (session_start() !== true) {
+			throw new ErrorException("session could not be started");
 		}
 		
-		return false;
+		if (session_regenerate_id() !== true) {
+			throw new ErrorException("session id could not be regenerated");
+		}
+		
+		$this->started = true;
+		
+		return true;		
 	}
 	
-	public static function destroy() {
-		if (!self::$started) {
+	public function destroy() {
+		if (!$this->started) {
 			throw new BadMethodCallException("session not started");
 		}
 		
@@ -49,8 +65,8 @@ class Session {
 		return session_destroy();
 	}
 	
-	public static function setValue($name, $value) {
-		if (!self::$started) {
+	public function setValue($name, $value) {
+		if (!$this->started) {
 			throw new BadMethodCallException("session not started");
 		}
 		
@@ -61,8 +77,8 @@ class Session {
 		$_SESSION[$name] = $value;
 	}
 	
-	public static function getValue($name) {
-		if (!self::$started) {
+	public function getValue($name) {
+		if (!$this->started) {
 			throw new BadMethodCallException("session not started");
 		}
 		
