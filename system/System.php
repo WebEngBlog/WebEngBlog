@@ -14,7 +14,7 @@ class System {
 		return Config::getInstance();
 	}
 	
-	public static function isDebug() {
+	public static function isDebugging() {
 		return true;
 	}
 	
