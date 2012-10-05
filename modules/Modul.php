@@ -1,14 +1,17 @@
 <?php
 
-abstract class Modul {
+class Modul {
 
 	private $template;
 
-	public final function display() {
+	private static $modules = array();
+
+	public function display() {
 		include($this->template);
 	}
 
-	public abstract function execute();
+	public function execute() {
+	}
 
 	/**
 	 *
@@ -16,9 +19,13 @@ abstract class Modul {
 	 * @throws InvalidArgumentException
 	 * @return Modul
 	 */
-	public static function &loadModul($name, $root = ROOT) {
+	public static final function &loadModul($name, $root = ROOT) {
 		if (!is_string($name)) {
 			throw new InvalidArgumentException($name ." is not a string");
+		}
+
+		if (array_key_exists($name, self::$modules)) {
+			return self::$modules[$name];
 		}
 
 		$class = ucfirst($name);
@@ -29,21 +36,23 @@ abstract class Modul {
 			if (!file_exists($file)) {
 				throw new InvalidArgumentException("file '". $name ."' does not exist");
 			}
-			
+				
 			include($file);
-			
+				
 			if (!class_exists($class)) {
 				throw new InvalidArgumentException("class '". $class ."' does not exist");
 			}
 		}
-		
+
 		$modul = new $class();
-		
+
 		if (!($modul instanceof Modul)) {
 			throw new InvalidArgumentException("'". $class ."' is not an instance of 'Modul'");
 		}
-		
+
 		$modul->template = $root.S."modules".S.$name.S."template".S.$name.".php";
+
+		self::$modules[$class] = $modul;
 
 		return $modul;
 	}
