@@ -1,6 +1,5 @@
 <?php
 
-//$article = Modul::loadModul("article")->getArticle((int) $_POST["id"]);
 $article = Modul::loadModul("article")->getArticle((int) $_GET["id"]);
 
 ?><article class="article_whole"><?php
