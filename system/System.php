@@ -31,7 +31,6 @@ class System {
 			throw new InvalidArgumentException($dir ." is invalid");
 		}
 		
-	//	$display = $_POST["display"];
 		$display = $_GET["display"];
 		
 		if (!isset($display)) {
