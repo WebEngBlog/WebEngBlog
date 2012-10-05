@@ -1,9 +1,6 @@
 <script type="text/javascript">
 
 	function showArticle(id) {
-	/*	var data = {display: "article;comment", id: id};
-		loadContent(data);
-	*/
 		loadContent("display=article;comment&id=" + id);
 	}
 	
