@@ -4,7 +4,7 @@ $config = array(
 	"dbName" => "blog",
 	"dbHost" => "localhost",
 	"dbUser" => "root",
-	"dbPassword" => ""
+	"dbPassword" => "root"
 );
 
 Config::setConfig($config);
