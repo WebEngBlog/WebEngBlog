@@ -25,6 +25,16 @@ class System {
 	public static function getBrowser() {
 		return $_SERVER['HTTP_USER_AGENT'];
 	}
+
+	public static function clean($elem) { 
+    	if(!is_array($elem)) 
+        	$elem = htmlentities($elem,ENT_QUOTES,"UTF-8"); 
+    	else 
+        foreach ($elem as $key => $value) 
+        	$elem[$key] = clean($value); 
+        
+    	return $elem; 
+	} 
 	
 	public static function display($dir, $default) {
 		if (!isset($dir) || !is_string($dir) || !is_dir($dir)) {

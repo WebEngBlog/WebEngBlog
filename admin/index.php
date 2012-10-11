@@ -12,17 +12,8 @@ include(ADMIN.S."system".S."classes.inc.php");
 
 Session::getSession()->start();
 
-function clean($elem) { 
-    if(!is_array($elem)) 
-        $elem = htmlentities($elem,ENT_QUOTES,"UTF-8"); 
-    else 
-        foreach ($elem as $key => $value) 
-            $elem[$key] = clean($value); 
-    return $elem; 
-} 
-
-$_GET = clean($_GET);
-$_POST = clean($_POST);
+$_GET = System::clean($_GET);
+$_POST = System::clean($_POST);
 
 if (isset($_POST["action"])) {
 	Modul::loadModul($_POST["action"], ADMIN)->execute();
