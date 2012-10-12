@@ -1,4 +1,5 @@
 <?php
+
 if ($_GET["func"] == "edit" && isset($_GET["id"]) && $_GET["id"] > 0) {
 
 $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
@@ -109,7 +110,7 @@ $posts = Modul::loadModul("article", ADMIN)->getAll();
 <?php 
 	}
 ?>
-
+		
 <?php
-} 
+}
 ?>

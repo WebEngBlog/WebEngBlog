@@ -28,7 +28,6 @@ if (User::isLoggedIn()) {
 		Modul::loadModul("article", ADMIN)->display();
 	}
 } else {
-	//echo '<script type="text/javascript">window.location.href="?";</script>';
 	Modul::loadModul("login", ADMIN)->display();
 }
 
