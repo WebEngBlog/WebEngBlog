@@ -11,6 +11,8 @@ class Article extends Modul {
 			self::deleteArticle((int) $_GET["id"]);
 		}
 		echo '<script type="text/javascript">window.location.href="?";</script>';
+		//header doesn't work here, headers already sent
+		//header("Location: ?");
 	}
 
 	public function &getArticle($id) {
@@ -26,6 +28,7 @@ class Article extends Modul {
 		$article->title = $title;
 		$article->content = $content;
 		$article->author = User::getLoggedInUserID();
+		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');
 		$article->creation_date = date('Y-m-d H:i:s');
 		return R::store($article);
@@ -39,6 +42,7 @@ class Article extends Modul {
 		$article->title = $title;
 		$article->content = $content;
 		$article->author = User::getLoggedInUserID();
+		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');
 		return R::store($article);
 	}

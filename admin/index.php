@@ -15,6 +15,8 @@ Session::getSession()->start();
 $_GET = System::clean($_GET);
 $_POST = System::clean($_POST);
 
+Modul::loadModul("header", ROOT)->display();
+
 if (isset($_POST["action"])) {
 	Modul::loadModul($_POST["action"], ADMIN)->execute();
 }
@@ -30,15 +32,11 @@ if (User::isLoggedIn()) {
 		Modul::loadModul("liste", ADMIN)->display();
 	}
 } else {
+	//echo '<script type="text/javascript">window.location.href="?";</script>';
+	//header("Location: ?");
 	Modul::loadModul("login", ADMIN)->display();
 }
 
+Modul::loadModul("footer", ROOT)->display();
+
 ?>
-
-<script type="text/javascript">
-
-	function loadContent(data) {
-		window.location.href = "?" + data;
-	}
-		
-</script>

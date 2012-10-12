@@ -1,3 +1,5 @@
+<link rel="text/javascript" src="<?php echo "modules".S."liste".S."template".S."liste.js"; ?>" />		
+
 <script type="text/javascript">
 	
 	function createArticle(){
@@ -17,7 +19,7 @@
 <?php 
 $posts = Modul::loadModul("liste", ADMIN)->getAll();
 ?>
-<a href="javascript:createArticle()">Create New</a>
+	<a href="javascript:createArticle()">Create New</a>
 <?php
 foreach ($posts as $value) {
 ?>

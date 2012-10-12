@@ -1,10 +1,8 @@
 <?php
-if(isset($_GET["edit"]) && isset($_GET["id"])){
-	$article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
-}
-?>
-<?php
-if (isset($_GET["edit"]) && $article->id > 0) {
+if (isset($_GET["edit"]) && $_GET["edit"] == "article" && isset($_GET["id"]) && $_GET["id"] > 0) {
+
+$article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
+
 ?>
 
 <section id="article" >
@@ -24,7 +22,7 @@ if (isset($_GET["edit"]) && $article->id > 0) {
 </section>
 
 <?php
-}  elseif (isset($_GET["create"])) {
+}  elseif (isset($_GET["create"]) && $_GET["create"] == "article") {
 ?>
 
 <section id="article" >
@@ -44,7 +42,7 @@ if (isset($_GET["edit"]) && $article->id > 0) {
 </section>
 
 <?php
-} elseif (isset($_GET["delete"])) {
+} elseif (isset($_GET["delete"]) && $_GET["delete"] == "article") {
 ?>
 
 <section id="article" >
@@ -60,7 +58,8 @@ if (isset($_GET["edit"]) && $article->id > 0) {
 
 <?php
 } else {
-	echo '<script type="text/javascript">window.location.href="?";</script>';
+	//echo '<script type="text/javascript">window.location.href="?";</script>';
+	header("Location: ?");
 }
 ?>
 		
