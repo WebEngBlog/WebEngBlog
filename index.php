@@ -18,4 +18,5 @@ if(isset($_GET["display"])){
 <?php 
 }
 System::display(ROOT, "footer"); 
+
 ?>
