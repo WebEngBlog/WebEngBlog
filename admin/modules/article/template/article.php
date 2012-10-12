@@ -58,7 +58,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 </section>
 
 <?php
-} else { // elseif ($_GET["func"] == "list") {
+} else {
 ?>
 
 <script type="text/javascript">
@@ -82,7 +82,7 @@ $posts = Modul::loadModul("article", ADMIN)->getAll();
 ?>
 	<a href="javascript:createArticle()">Create New</a>
 <?php
-foreach ($posts as $value) {
+	foreach ($posts as $value) {
 ?>
 	<section id="list_item" >
 		<div>
@@ -93,15 +93,9 @@ foreach ($posts as $value) {
 	</section>
 
 <?php 
-}
-?>
-
-<?php
-} /*else {
-	echo '<script type="text/javascript">window.location.href="?";</script>';
-//	header("Location: ?");
-}*/
+	}
 ?>
 		
 <?php
+}
 ?>

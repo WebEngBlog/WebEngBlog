@@ -26,10 +26,8 @@ if (User::isLoggedIn()) {
 		Modul::loadModul($_GET["display"], ADMIN)->display();
 	} else {
 		Modul::loadModul("article", ADMIN)->display();
-	//	echo '<script type="text/javascript">loadContent("display=article&func=list");</script>';
 	}
 } else {
-//	echo '<script type="text/javascript">window.location.href="?";</script>';
 	Modul::loadModul("login", ADMIN)->display();
 }
 
