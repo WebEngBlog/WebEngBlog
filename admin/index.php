@@ -22,24 +22,13 @@ if (isset($_POST["action"])) {
 }
 
 if (User::isLoggedIn()) {
-/*	if (isset($_GET["create"])){
-		Modul::loadModul("article", ADMIN)->display();
-	} elseif (isset($_GET["edit"]) && isset($_GET["id"])){
-		Modul::loadModul("article", ADMIN)->display();
-	} elseif (isset($_GET["delete"]) && isset($_GET["id"])) {
-		Modul::loadModul("article", ADMIN)->display();
-	} else {
-		Modul::loadModul("liste", ADMIN)->display();
-	}
-*/
 	if(isset($_GET["display"])){
 		Modul::loadModul($_GET["display"], ADMIN)->display();
 	} else {
-		Modul::loadModul("liste", ADMIN)->display();
+		echo '<script type="text/javascript">loadContent("display=article&func=list");</script>';
 	}
 } else {
-	//echo '<script type="text/javascript">window.location.href="?";</script>';
-	//header("Location: ?");
+	echo '<script type="text/javascript">window.location.href="?";</script>';
 	Modul::loadModul("login", ADMIN)->display();
 }
 

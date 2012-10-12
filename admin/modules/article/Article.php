@@ -19,8 +19,11 @@ class Article extends Modul {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
-		
 		return R::load("article", $id);
+	}
+
+	public static function &getAll() {
+		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
 
 	public function &createArticle($title,$content) {

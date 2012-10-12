@@ -1,6 +1,6 @@
 <?php
-//if (isset($_GET["edit"]) && $_GET["edit"] == "article" && isset($_GET["id"]) && $_GET["id"] > 0) {
 if ($_GET["func"] == "edit" && isset($_GET["id"]) && $_GET["id"] > 0) {
+
 $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 
 ?>
@@ -22,8 +22,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 </section>
 
 <?php
-}  //elseif (isset($_GET["create"]) && $_GET["create"] == "article") {
-elseif ($_GET["func"] == "create") {
+} elseif ($_GET["func"] == "create") {
 ?>
 
 <section id="article" >
@@ -43,15 +42,14 @@ elseif ($_GET["func"] == "create") {
 </section>
 
 <?php
-} //elseif (isset($_GET["delete"]) && $_GET["delete"] == "article") {
-	elseif ($_GET["func"] == "delete") {
+} elseif ($_GET["func"] == "delete" && isset($_GET["id"]) && $_GET["id"] > 0) {
 ?>
 
 <section id="article" >
-	<h1>Artikel l��schen</h1>
+	<h1>Artikel löschen</h1>
 	<form action="" method="post">
-		<p>Wollen sie den Artikel wirklich l��schen?</p>
-		<input id="btn_delete" type="submit" name="delete" value="L��schen" />
+		<p>Wollen sie den Artikel wirklich löschen?</p>
+		<input id="btn_delete" type="submit" name="delete" value="Löschen" />
 		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?'" value="Zur��ck" />
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="delete" value="true" />
@@ -59,8 +57,47 @@ elseif ($_GET["func"] == "create") {
 </section>
 
 <?php
+} elseif ($_GET["func"] == "list") {
+?>
+
+<script type="text/javascript">
+	
+	function createArticle(){
+		loadContent("display=article&func=create");
+	}
+
+	function editArticle(id) {
+		loadContent("display=article&func=edit&id=" + id);
+	}
+
+	function deleteArticle(id) {
+		loadContent("display=article&func=delete&id=" + id);
+	}	
+
+</script>
+
+<?php 
+$posts = Modul::loadModul("article", ADMIN)->getAll();
+?>
+	<a href="javascript:createArticle()">Create New</a>
+<?php
+foreach ($posts as $value) {
+?>
+	<section id="list_item" >
+		<div>
+			<?php echo $value->title; ?>
+			<a href="javascript:editArticle(<?php echo $value->id ?>)">Edit</a>
+			<a href="javascript:deleteArticle(<?php echo $value->id ?>)">Delete</a>
+		</div>
+	</section>
+
+<?php 
+}
+?>
+
+<?php
 } else {
-//	echo '<script type="text/javascript">window.location.href="?";</script>';
+	echo '<script type="text/javascript">window.location.href="?";</script>';
 //	header("Location: ?");
 }
 ?>
