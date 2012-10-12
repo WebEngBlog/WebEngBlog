@@ -25,10 +25,11 @@ if (User::isLoggedIn()) {
 	if(isset($_GET["display"])){
 		Modul::loadModul($_GET["display"], ADMIN)->display();
 	} else {
-		echo '<script type="text/javascript">loadContent("display=article&func=list");</script>';
+		Modul::loadModul("article", ADMIN)->display();
+	//	echo '<script type="text/javascript">loadContent("display=article&func=list");</script>';
 	}
 } else {
-	echo '<script type="text/javascript">window.location.href="?";</script>';
+//	echo '<script type="text/javascript">window.location.href="?";</script>';
 	Modul::loadModul("login", ADMIN)->display();
 }
 

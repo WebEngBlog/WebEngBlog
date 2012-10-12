@@ -1,4 +1,5 @@
 <?php
+
 if ($_GET["func"] == "edit" && isset($_GET["id"]) && $_GET["id"] > 0) {
 
 $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
@@ -57,7 +58,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 </section>
 
 <?php
-} elseif ($_GET["func"] == "list") {
+} else { // elseif ($_GET["func"] == "list") {
 ?>
 
 <script type="text/javascript">
@@ -96,10 +97,10 @@ foreach ($posts as $value) {
 ?>
 
 <?php
-} else {
+} /*else {
 	echo '<script type="text/javascript">window.location.href="?";</script>';
 //	header("Location: ?");
-}
+}*/
 ?>
 		
 <?php
