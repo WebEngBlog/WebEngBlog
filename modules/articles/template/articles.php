@@ -12,8 +12,8 @@ $posts = Modul::loadModul("articles")->getAll();
 
 foreach ($posts as $value) {
 	?><article class="article_preview" onclick="showArticle(<?php echo $value->id ?>)">
-		<h1><?php echo $value->title; ?></h1><?php 
-	echo substr($value->content, 0, 400) ."...";
+		<h1><?php echo $value->title; ?></h1>
+		<?php echo substr($value->content, 0, 400) ."...";
 	?></article><?php 
 }
 

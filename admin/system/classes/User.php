@@ -104,6 +104,13 @@ class User {
 		
 		return $user;
 	}
+
+	public static function getLoggedInUserID() {
+		$session = Session::getSession();
+		$id = (int) $session->getValue("userid");
+		return $id;
+	}
+
 }
 
 ?>

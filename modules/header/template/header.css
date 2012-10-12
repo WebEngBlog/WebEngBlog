@@ -1,0 +1,14 @@
+#content {
+	margin: 0 auto;
+	width: 700px;
+}
+			
+.article_preview {
+	cursor: pointer;
+	border: solid;
+	margin-bottom: 12px;
+}
+			
+.comment {
+	color: red;
+}
