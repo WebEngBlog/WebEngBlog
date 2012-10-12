@@ -3,15 +3,18 @@
 <script type="text/javascript">
 	
 	function createArticle(){
-		loadContent("create=article");
+		loadContent("display=article&func=create");
+	//	loadContent("create=article");
 	}
 
 	function editArticle(id) {
-		loadContent("edit=article&id=" + id);
+		loadContent("display=article&func=edit&id=" + id);
+	//	loadContent("edit=article&id=" + id);
 	}
 
 	function deleteArticle(id) {
-		loadContent("delete=article&id=" + id);
+		loadContent("display=article&func=delete&id=" + id);
+	//	loadContent("delete=article&id=" + id);
 	}	
 
 </script>
