@@ -31,7 +31,7 @@ class System {
         	$elem = htmlentities($elem,ENT_QUOTES,"UTF-8"); 
     	else 
         foreach ($elem as $key => $value) 
-        	$elem[$key] = clean($value); 
+        	$elem[$key] = self::clean($value); 
         
     	return $elem; 
 	} 
