@@ -46,6 +46,6 @@ include(ROOT.S.'system'.S.'Autoloader.php');
 	</body>
 </html>
 
-<?php 
+<?php
 
 ?>
