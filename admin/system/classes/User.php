@@ -61,6 +61,14 @@ class User {
 		return $user;
 	}
 
+	public static function edit($id, $name, $password){
+		throw new BadMethodCallException();
+	}
+
+	public static function delete($id){
+		throw new BadMethodCallException();
+	}
+
 	public static function getUser($value) {
 		if (is_int($value) && $value > 0) {
 			return R::load("user", $value);
@@ -76,7 +84,8 @@ class User {
 	}
 
 	public static function getUsers() {
-		throw new BadMethodCallException("Not yet implemented");;
+		//throw new BadMethodCallException("Not yet implemented");;
+		return R::findAll("user", " ORDER BY id DESC");	
 	}
 	
 	public static function isLoggedIn() {

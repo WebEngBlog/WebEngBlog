@@ -22,6 +22,21 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 </section>
 
 <?php
+} elseif ($_GET["func"] == "delete" && isset($_GET["id"]) && $_GET["id"] > 0) {
+?>
+
+<section id="article" >
+	<h1>Artikel löschen</h1>
+	<form action="" method="post">
+		<p>Wollen sie den Artikel wirklich löschen?</p>
+		<input id="btn_delete" type="submit" name="delete" value="Löschen" />
+		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?'" value="Zur��ck" />
+		<input type="hidden" name="action" value="article" />
+		<input type="hidden" name="delete" value="true" />
+	</form>
+</section>
+
+<?php
 } elseif ($_GET["func"] == "create") {
 ?>
 
