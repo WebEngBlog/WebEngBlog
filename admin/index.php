@@ -25,7 +25,7 @@ if (User::isLoggedIn()) {
 	if(isset($_GET["display"])){
 		Modul::loadModul($_GET["display"], ADMIN)->display();
 	} else {
-		Modul::loadModul("article", ADMIN)->display();
+		Modul::loadModul("articles", ADMIN)->display();
 	}
 } else {
 	Modul::loadModul("login", ADMIN)->display();

@@ -8,7 +8,7 @@
 
 <?php 
 
-$posts = Modul::loadModul("articles")->getAll();
+$posts = Modul::loadModul("articles", ROOT)->getAll();
 
 foreach ($posts as $value) {
 	?><article class="article_preview" onclick="showArticle(<?php echo $value->id ?>)">

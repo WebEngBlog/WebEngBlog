@@ -1,6 +1,6 @@
 <?php
 
-class Article extends Modul {
+class Articles extends Modul {
 
 	public function execute() {
 		if(isset($_POST["create"])){

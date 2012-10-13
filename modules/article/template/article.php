@@ -1,5 +1,5 @@
 <?php
-$article = Modul::loadModul("article")->getArticle((int) $_GET["id"]);
+$article = Modul::loadModul("article", ROOT)->getArticle((int) $_GET["id"]);
 ?>
 
 <article class="article_whole">

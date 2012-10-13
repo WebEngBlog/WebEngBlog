@@ -11,7 +11,6 @@ class Article extends Modul {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
 		
-		
 		return R::load("article", $id);
 	}
 }
