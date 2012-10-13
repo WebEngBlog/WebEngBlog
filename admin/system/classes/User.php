@@ -61,12 +61,24 @@ class User {
 		return $user;
 	}
 
-	public static function edit($id, $name, $password){
-		throw new BadMethodCallException();
+	public static function edit($id, $oldpassword, $newpassword){
+		if (preg_match("/[[:space:]]+/", $newpassword) > 0 || strlen($newpassword) < self::PASSWORD_LENGTH) {
+			return false;
+		}
+
+		$user = self::getUser($id);
+		if($user->password == self::getHash($oldpassword)){
+			$user->password = self::getHash($newpassword);
+		} else {
+			return false;
+		}
+		return  R::store($user);
 	}
 
 	public static function delete($id){
-		throw new BadMethodCallException();
+		$user = self::getUser($id);
+		
+		return R::trash($user);
 	}
 
 	public static function getUser($value) {

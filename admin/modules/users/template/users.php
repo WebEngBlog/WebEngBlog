@@ -4,16 +4,16 @@ $user = User::getUser((int) $_GET["id"]);
 ?>
 
 <section id="edit" >
-	<h1>Edit</h1>
+	<h1>Change Password</h1>
 	<form action="" method="post">
-		<fieldset>
-			<label id="lbl_username" class="login_label" for="username">Benutzername</label>
-			<input id="in_username" class="input_field" type="text" name="username" value="<?php echo $user->name; ?>" />
-			<label id="lbl_password" class="login_label" for="password">Passwort</label>
-			<input id="in_password" class="input_field" type="password" name="password" />
-		</fieldset>
-		<input id="btn_login" type="submit" name="edit" value="Bearbeiten" />
-		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=users'" value="Zurück" />
+		<label id="lbl_username" class="edit_label" for="username">User:</label>
+		<label id="lbl_username" class="edit_label" for="username"><?php echo $user->name; ?></label><br>
+		<label id="lbl_oldpassword" class="edit_label" for="password">Old Password</label>
+		<input id="in_oldpassword" class="edit_field" type="password" name="oldpassword" /><br>
+		<label id="lbl_newpassword" class="edit_label" for="password">New Password</label>
+		<input id="in_newpassword" class="edit_field" type="password" name="newpassword" /><br>
+		<input id="btn_login" type="submit" name="edit" value="Change Password" />
+		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=users'" value="Back" />
 		<input type="hidden" name="action" value="users" />
 		<input type="hidden" name="edit" value="true" />
 	</form>
@@ -24,11 +24,11 @@ $user = User::getUser((int) $_GET["id"]);
 ?>
 
 <section id="delete" >
-	<h1>User löschen</h1>
+	<h1>Delete User</h1>
 	<form action="" method="post">
-		<p>Wollen sie den User wirklich löschen?</p>
-		<input id="btn_delete" type="submit" name="delete" value="Löschen" />
-		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=users'" value="Zurück" />
+		<p>Do you really want to delete the user?</p>
+		<input id="btn_delete" type="submit" name="delete" value="Delete" />
+		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=users'" value="Back" />
 		<input type="hidden" name="action" value="users" />
 		<input type="hidden" name="delete" value="true" />
 	</form>
@@ -41,14 +41,12 @@ $user = User::getUser((int) $_GET["id"]);
 <section id="register" >
 	<h1>Register</h1>
 	<form action="" method="post">
-		<fieldset>
-			<label id="lbl_username" class="login_label" for="username">Benutzername</label>
-			<input id="in_username" class="input_field" type="text" name="username" />
-			<label id="lbl_password" class="login_label" for="password">Passwort</label>
-			<input id="in_password" class="input_field" type="password" name="password" />
-		</fieldset>
-		<input id="btn_login" type="submit" name="register" value="Registrieren" />
-		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=users'" value="Zurück" />
+		<label id="lbl_username" class="register_label" for="username">Username</label>
+		<input id="in_username" class="input_field" type="text" name="username" /><br>
+		<label id="lbl_password" class="register_label" for="password">Password</label>
+		<input id="in_password" class="input_field" type="password" name="password" /><br>
+		<input id="btn_login" type="submit" name="register" value="Register" />
+		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=users'" value="Back" />
 		<input type="hidden" name="action" value="users" />
 		<input type="hidden" name="register" value="true" />
 	</form>
@@ -79,21 +77,20 @@ $user = User::getUser((int) $_GET["id"]);
 $users = User::getUsers();
 ?>
 	<a href="javascript:registerUser()">Register New User</a>
+	<table>
 <?php
 	foreach ($users as $value) {
 ?>
-	<section id="list_item" >
-		<div>
-			<?php echo $value->name; ?>
-			<a href="javascript:editUser(<?php echo $value->id ?>)">Edit</a>
-			<a href="javascript:deleteUser(<?php echo $value->id ?>)">Delete</a>
-		</div>
-	</section>
+		<tr>
+			<td><?php echo $value->name; ?></td>
+			<td><a href="javascript:editUser(<?php echo $value->id ?>)">Change Password</a></td>
+			<td><a href="javascript:deleteUser(<?php echo $value->id ?>)">Delete</a></td>
+		</tr>
 
 <?php 
 	}
 ?>
-
+	</table>
 <?php
 }
 ?>

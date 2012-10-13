@@ -6,11 +6,14 @@ class Users extends Modul {
 		if(isset($_POST["register"])){
 			User::register($_POST["username"], $_POST["password"]);
 		} elseif (isset($_POST["edit"])) {
-			User::edit((int) $_GET["id"], $_POST["username"], $_POST["passord"]);
+			$return = User::edit((int) $_GET["id"], $_POST["oldpassword"], $_POST["newpassword"]);
+			if($return == false){
+				echo '<script type="text/javascript">window.location.href="?display=users&func=edit&id='.$_GET["id"].'";</script>';
+			}
 		} elseif (isset($_POST["delete"])) {
 			User::delete((int) $_GET["id"]);
 		}
-		echo '<script type="text/javascript">window.location.href="?";</script>';
+		echo '<script type="text/javascript">window.location.href="?display=users";</script>';
 	}
 }
 

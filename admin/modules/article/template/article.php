@@ -7,16 +7,14 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 ?>
 
 <section id="article" >
-	<h1>Artikel bearbeiten</h1>
+	<h1>Edit Article</h1>
 	<form action="" method="post">
-		<fieldset>
-			<label id="lbl_title" class="title_label" for="title">Titel</label>
-			<input id="in_title" class="input_field" type="text" name="title" value="<?php echo $article->title; ?>"/></br>
-			<label id="lbl_content" class="content_label" for="content">Content</label>
-    		<textarea id="in_content" class="input_field" name="content" cols="50" rows="10"><?php echo $article->content; ?></textarea>
-		</fieldset>
-		<input id="btn_save" type="submit" name="save" value="Speichern" />
-		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?'" value="Zur��ck" />
+		<label id="lbl_title" class="title_label" for="title">Titel</label><br>
+		<input id="in_title" class="input_field" type="text" name="title" value="<?php echo $article->title; ?>" /><br>
+		<label id="lbl_content" class="content_label" for="content">Content</label><br>
+    	<textarea id="in_content" class="input_field" name="content" cols="50" rows="10"><?php echo $article->content; ?></textarea><br>
+		<input id="btn_save" type="submit" name="save" value="Save" />
+		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=article'" value="Back" />
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="edit" value="true" />
 	</form>
@@ -27,11 +25,11 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 ?>
 
 <section id="article" >
-	<h1>Artikel löschen</h1>
+	<h1>Delete Article</h1>
 	<form action="" method="post">
-		<p>Wollen sie den Artikel wirklich löschen?</p>
-		<input id="btn_delete" type="submit" name="delete" value="Löschen" />
-		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?'" value="Zur��ck" />
+		<p>Do you really want to delete the article?</p>
+		<input id="btn_delete" type="submit" name="delete" value="Delete" />
+		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=article'" value="Back" />
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="delete" value="true" />
 	</form>
@@ -42,33 +40,16 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 ?>
 
 <section id="article" >
-	<h1>Artikel erstellen</h1>
+	<h1>Create Article</h1>
 	<form action="" method="post">
-		<fieldset>
-			<label id="lbl_title" class="title_label" for="title">Titel</label>
-			<input id="in_title" class="input_field" type="text" name="title" /></br>
-			<label id="lbl_content" class="content_label" for="content">Content</label>
-    		<textarea id="in_content" class="input_field" name="content" cols="50" rows="10"></textarea>
-		</fieldset>
-		<input id="btn_save" type="submit" name="save" value="Speichern" />
-		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?'" value="Zur��ck" />
+		<label id="lbl_title" class="title_label" for="title">Titel</label><br>
+		<input id="in_title" class="input_field" type="text" name="title" /><br>
+		<label id="lbl_content" class="content_label" for="content">Content</label><br>
+    	<textarea id="in_content" class="input_field" name="content" cols="50" rows="10"></textarea><br>
+		<input id="btn_save" type="submit" name="save" value="Save" />
+		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?display=article'" value="Back" />
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="create" value="true" />
-	</form>
-</section>
-
-<?php
-} elseif ($_GET["func"] == "delete" && isset($_GET["id"]) && $_GET["id"] > 0) {
-?>
-
-<section id="article" >
-	<h1>Artikel löschen</h1>
-	<form action="" method="post">
-		<p>Wollen sie den Artikel wirklich löschen?</p>
-		<input id="btn_delete" type="submit" name="delete" value="Löschen" />
-		<input id="btn_back" type="button" name="back" onclick="javascript:window.location.href='?'" value="Zur��ck" />
-		<input type="hidden" name="action" value="article" />
-		<input type="hidden" name="delete" value="true" />
 	</form>
 </section>
 
@@ -96,21 +77,20 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 $posts = Modul::loadModul("article", ADMIN)->getAll();
 ?>
 	<a href="javascript:createArticle()">Create New</a>
+	<table>
 <?php
 	foreach ($posts as $value) {
 ?>
-	<section id="list_item" >
-		<div>
-			<?php echo $value->title; ?>
-			<a href="javascript:editArticle(<?php echo $value->id ?>)">Edit</a>
-			<a href="javascript:deleteArticle(<?php echo $value->id ?>)">Delete</a>
-		</div>
-	</section>
+		<tr>
+			<td><?php echo $value->title; ?></td>
+			<td><a href="javascript:editArticle(<?php echo $value->id ?>)">Edit</a></td>
+			<td><a href="javascript:deleteArticle(<?php echo $value->id ?>)">Delete</a></td>
+		</tr>
 
 <?php 
 	}
 ?>
-		
+	</table>		
 <?php
 }
 ?>
