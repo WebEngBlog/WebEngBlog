@@ -17,19 +17,13 @@ $_GET = System::clean($_GET);
 $_POST = System::clean($_POST);
 
 System::display(ROOT, "header"); 
-
-if(isset($_GET["display"])){
-	//Modul::loadModul("article", ROOT)->display();
-} else {
 ?>	
 	<section id="content">
 		<?php 
-			System::display(ROOT, "articles"); 
+			System::display(ROOT, "article"); 
 			//Modul::loadModul("articles",ROOT)->display;
 		?>
 	</section>
 <?php 
-}
 System::display(ROOT, "footer"); 
-
 ?>

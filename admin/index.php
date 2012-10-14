@@ -1,4 +1,11 @@
 <?php 
+/*******************************************************************************
+* index.php for the backend (admin area)
+* 
+* @author 		Lukas Berg, Tobias Röding
+* @copyright	@author, 14.10.2012
+* @version		0.9
+*******************************************************************************/
 
 define("S", DIRECTORY_SEPARATOR);
 define("ADMIN", dirname(__FILE__));

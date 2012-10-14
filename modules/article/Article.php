@@ -2,8 +2,8 @@
 /*******************************************************************************
 * Article modul for the frontend
 * 
-* @author 		Lukas Berg
-* @copyright	Lukas Berg, 14.10.2012
+* @author 		Lukas Berg, Tobias Röding
+* @copyright	@author, 14.10.2012
 * @version		0.9
 *******************************************************************************/
 
@@ -19,6 +19,10 @@ class Article extends Modul {
 		}
 
 		return R::load("article", $id);
+	}
+
+	public static function &getAll() {
+		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
 }
 
