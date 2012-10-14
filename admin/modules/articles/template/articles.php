@@ -1,4 +1,14 @@
 <?php
+/*******************************************************************************
+* articles template for the backend (admin area)
+* 
+* @author 		Tobias Röding
+* @copyright	Tobias Röding, 14.10.2012
+* @version		0.9
+*******************************************************************************/
+?>
+
+<?php
 
 if ($_GET["func"] == "edit" && isset($_GET["id"]) && $_GET["id"] > 0) {
 

@@ -1,4 +1,14 @@
 <?php
+/*******************************************************************************
+* article template for the frontend
+* 
+* @author 		Lukas Berg
+* @copyright	Lukas Berg, 14.10.2012
+* @version		0.9
+*******************************************************************************/
+?>
+
+<?php
 $article = Modul::loadModul("article", ROOT)->getArticle((int) $_GET["id"]);
 ?>
 

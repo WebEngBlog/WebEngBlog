@@ -1,4 +1,11 @@
 <?php
+/*******************************************************************************
+* System class which contains important system functions
+* 
+* @author 		Lukas Berg, Tobias Röding
+* @copyright	@author, 14.10.2012
+* @version		1.1
+*******************************************************************************/
 
 class System {
 
