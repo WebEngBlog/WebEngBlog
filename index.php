@@ -17,6 +17,6 @@ if(isset($_GET["display"])){
 	<section id="content"><?php System::display(ROOT, "articles"); ?></section>
 <?php 
 }
-System::display(ROOT, "footer"); 
+System::display(ROOT, "footer");
 
 ?>
