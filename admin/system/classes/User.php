@@ -1,4 +1,11 @@
 <?php
+/*******************************************************************************
+* User class for mangagin the users
+* 
+* @author 		Lukas Berg, Tobias Röding
+* @copyright	@author, 14.10.2012
+* @version		0.9
+*******************************************************************************/
 
 class User {
 
@@ -61,6 +68,26 @@ class User {
 		return $user;
 	}
 
+	public static function edit($id, $oldpassword, $newpassword){
+		if (preg_match("/[[:space:]]+/", $newpassword) > 0 || strlen($newpassword) < self::PASSWORD_LENGTH) {
+			return false;
+		}
+
+		$user = self::getUser($id);
+		if($user->password == self::getHash($oldpassword)){
+			$user->password = self::getHash($newpassword);
+		} else {
+			return false;
+		}
+		return  R::store($user);
+	}
+
+	public static function delete($id){
+		$user = self::getUser($id);
+		
+		return R::trash($user);
+	}
+
 	public static function getUser($value) {
 		if (is_int($value) && $value > 0) {
 			return R::load("user", $value);
@@ -76,7 +103,8 @@ class User {
 	}
 
 	public static function getUsers() {
-		throw new BadMethodCallException("Not yet implemented");;
+		//throw new BadMethodCallException("Not yet implemented");;
+		return R::findAll("user", " ORDER BY id DESC");	
 	}
 	
 	public static function isLoggedIn() {
