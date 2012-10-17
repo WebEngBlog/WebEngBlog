@@ -24,7 +24,7 @@ final class Autoloader {
 		spl_autoload_unregister("Autoloader::__autoload");
 	}
 
-	private static function __autoload($class) {		
+	private static function __autoload($class) {
 		if (!array_key_exists($class, self::$classes)) {
 			return false;
 		}
@@ -38,7 +38,7 @@ final class Autoloader {
 		return include($file);
 	}
 
-	public static function setClassPaths($classes) {
+	public static function setClassPaths($classes) {		
 		if (is_array($classes)) {
 			self::$classes = $classes;
 			return true;
