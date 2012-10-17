@@ -14,22 +14,23 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 $article = Modul::loadModul("article", ROOT)->getArticle((int) $_GET["id"]);
 ?>
 
-<article class="article_whole">
+<article>
 <?php
 if ($article->id > 0) {
 ?>
-		<h1><?php echo $article->title; ?></h1>
-		<div><?php echo $article->content; ?></div>
+		<h3><a href="#"><?php echo $article->title; ?></a></h3>
+		<h6>Written by <a href="#"><?php echo $article->author; ?></a> on <?php echo $article->creation_date; ?>.</h6>
+		<p><?php echo $article->content; ?></p>
 <?php
 	$tags = preg_split("/[\;]+/", $article->tags);
 	foreach ($tags as $tag) {
 ?>
-		<div><?php echo $tag; ?></div>
+		<a><?php echo $tag; ?></a>
 <?php
 	}
 } else {
 ?>
-	<h1>No article found</h1>
+	<h3>No article found</h3>
 <?php
 }
 ?>
@@ -52,9 +53,11 @@ if ($article->id > 0) {
 $posts = Modul::loadModul("article", ROOT)->getAll();
 
 foreach ($posts as $value) {
-	?><article class="article_preview" onclick="showArticle(<?php echo $value->id ?>)">
-		<h1><?php echo $value->title; ?></h1>
-		<?php echo substr($value->content, 0, 400) ."...";
+	?><article>
+		<h3><a href="javascript:showArticle(<?php echo $value->id ?>)"><?php echo $value->title; ?></a></h3>
+		<h6>Written by <a href="#"><?php echo $value->author; ?></a> on <?php echo $value->creation_date; ?>.</h6>
+		<?php echo substr($value->content, 0, 400)?>
+		<?php echo '<a href="javascript:showArticle('. $value->id .')" >More...</a>'
 	?></article><?php 
 }
 }
