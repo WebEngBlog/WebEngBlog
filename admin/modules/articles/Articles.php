@@ -38,6 +38,7 @@ class Articles extends Modul {
 		$article->title = $title;
 		$article->content = $content;
 		$article->author = User::getLoggedInUserID();
+		$article->tags = $tags;
 		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');
 		$article->creation_date = date('Y-m-d H:i:s');
@@ -52,6 +53,7 @@ class Articles extends Modul {
 		$article->title = $title;
 		$article->content = $content;
 		$article->author = User::getLoggedInUserID();
+		$article->tags = $tags;
 		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');
 		return R::store($article);
