@@ -39,7 +39,7 @@ $_POST = System::clean($_POST);
   <script src="foundation/javascripts/modernizr.foundation.js"></script>
 
   <!-- Included JS Files (Compressed) -->
-  <script src="jquery-1.8.2.min.js"></script>
+  <script src="foundation/javascripts/jquery.js"></script>
   <script src="foundation/javascripts/foundation.min.js"></script>
   
   <!-- Initialize JS Plugins -->
