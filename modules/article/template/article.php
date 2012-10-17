@@ -21,6 +21,12 @@ if ($article->id > 0) {
 		<h1><?php echo $article->title; ?></h1>
 		<div><?php echo $article->content; ?></div>
 <?php
+	$tags = preg_split("/[\;]+/", $article->tags);
+	foreach ($tags as $tag) {
+?>
+		<div><?php echo $tag; ?></div>
+<?php
+	}
 } else {
 ?>
 	<h1>No article found</h1>

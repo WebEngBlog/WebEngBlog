@@ -11,9 +11,9 @@ class Articles extends Modul {
 
 	public function execute() {
 		if(isset($_POST["create"])){
-			self::createArticle($_POST["title"],$_POST["content"]);
+			self::createArticle($_POST["title"],$_POST["content"],$_POST["tags"]);
 		} elseif(isset($_POST["edit"])){
-			self::editArticle((int) $_GET["id"],$_POST["title"],$_POST["content"]);
+			self::editArticle((int) $_GET["id"],$_POST["title"],$_POST["content"],$_POST["tags"]);
 		} elseif(isset($_POST["delete"])){
 			self::deleteArticle((int) $_GET["id"]);
 		}
@@ -33,18 +33,19 @@ class Articles extends Modul {
 		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
 
-	public function &createArticle($title,$content) {
+	public function &createArticle($title,$content,$tags) {
 		$article = R::dispense("article");
 		$article->title = $title;
 		$article->content = $content;
 		$article->author = User::getLoggedInUserID();
+		$article->tags = $tags;
 		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');
 		$article->creation_date = date('Y-m-d H:i:s');
 		return R::store($article);
 	}
 
-	public function &editArticle($id,$title,$content) {
+	public function &editArticle($id,$title,$content,$tags) {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
@@ -52,6 +53,7 @@ class Articles extends Modul {
 		$article->title = $title;
 		$article->content = $content;
 		$article->author = User::getLoggedInUserID();
+		$article->tags = $tags;
 		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');
 		return R::store($article);
