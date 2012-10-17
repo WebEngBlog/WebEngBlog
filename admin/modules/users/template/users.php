@@ -68,6 +68,10 @@ $user = User::getUser((int) $_GET["id"]);
 ?>
 
 <script type="text/javascript">
+
+	function loadContent(data) {
+		window.location.href = "?" + data;
+	}
 	
 	function registerUser(){
 		loadContent("display=users&func=register");

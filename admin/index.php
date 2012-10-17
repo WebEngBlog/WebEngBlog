@@ -41,7 +41,7 @@ if (isset($_POST["action"])) {
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
 
-  <title>Welcome to our Blog</title>
+  <title>Admin Area</title>
 
   <link rel="stylesheet" href="../foundation/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="../foundation/stylesheets/app.css">
@@ -75,7 +75,7 @@ if (isset($_POST["action"])) {
         <li><a href="#">Archive</a></li>
       </ul>
 
-      <h1>Welcome <small>This is our blog. Still in progress.</small>
+      <h1>Admin Area</h1>
       <hr />
     </div>
   </div>

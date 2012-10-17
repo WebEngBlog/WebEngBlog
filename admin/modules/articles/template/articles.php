@@ -72,6 +72,10 @@ $article = Modul::loadModul("articles", ADMIN)->getArticle((int) $_GET["id"]);
 ?>
 
 <script type="text/javascript">
+
+	function loadContent(data) {
+		window.location.href = "?" + data;
+	}
 	
 	function createArticle(){
 		loadContent("display=articles&func=create");
