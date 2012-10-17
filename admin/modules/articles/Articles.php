@@ -2,8 +2,8 @@
 /*******************************************************************************
 * Articles modul for the backend (admin area)
 * 
-* @author 		Tobias RÃ¶ding
-* @copyright	Tobias RÃ¶ding, 14.10.2012
+* @author 		Tobias Röding
+* @copyright	Tobias Röding, 14.10.2012
 * @version		0.9
 *******************************************************************************/
 
@@ -22,18 +22,18 @@ class Articles extends Modul {
 		//header("Location: ?");
 	}
 
-	public function &getArticle($id) {
+	public function getArticle($id) {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
 		return R::load("article", $id);
 	}
 
-	public static function &getAll() {
+	public static function getAll() {
 		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
 
-	public function &createArticle($title,$content,$tags) {
+	public function createArticle($title,$content,$tags) {
 		$article = R::dispense("article");
 		$article->title = $title;
 		$article->content = $content;
@@ -45,7 +45,7 @@ class Articles extends Modul {
 		return R::store($article);
 	}
 
-	public function &editArticle($id,$title,$content,$tags) {
+	public function editArticle($id,$title,$content,$tags) {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
@@ -59,7 +59,7 @@ class Articles extends Modul {
 		return R::store($article);
 	}
 
-	public function &deleteArticle($id) {
+	public function deleteArticle($id) {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
