@@ -14,11 +14,17 @@ class Modul {
 
 	public function display($template = null) {
 		if (is_string($template)) {
-			include(dirname(__FILE__).S.$template.S."template".S.$template.".php");
+			$file = dirname(__FILE__).S.$template.S."template".S.$template.".php";
 		} else {
 			$dir = lcfirst(get_class($this));
-			include(dirname(__FILE__).S.$dir.S."template".S.lcfirst(get_class($this)).".php");
+			$file = dirname(__FILE__).S.$dir.S."template".S.lcfirst(get_class($this)).".php";
 		}
+		
+		if (!is_file($file)) {
+			throw new InvalidArgumentException($template . " is not a valid file");
+		}
+		
+		include($file);
 	}
 
 	public function execute() {

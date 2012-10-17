@@ -20,16 +20,11 @@ System::display(ROOT, "header");
 ?>	
 	<section id="content">
 		<?php 
-			System::display(ROOT, "article"); 
-			//Modul::loadModul("articles",ROOT)->display;
+			Modul::loadModul("article",ROOT)->display();
 		?>
 	</section>
-<?php 
-<<<<<<< .merge_file_e11E6G
-}
+<?php
+
 System::display(ROOT, "footer");
 
-=======
-System::display(ROOT, "footer"); 
->>>>>>> .merge_file_Q6fiA0
 ?>
