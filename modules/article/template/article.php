@@ -2,7 +2,7 @@
 /*******************************************************************************
 * article template for the frontend
 * 
-* @author 		Lukas Berg, Tobias Röding
+* @author 		Lukas Berg, Tobias R��ding
 * @copyright	@author, 14.10.2012
 * @version		0.9
 *******************************************************************************/
@@ -36,7 +36,7 @@ if ($article->id > 0) {
 <script type="text/javascript">
 
 	function showArticle(id) {
-		loadContent("display=article;comment&id=" + id);
+		loadContent("display=article&id=" + id);
 	}
 	
 </script>
