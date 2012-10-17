@@ -42,6 +42,10 @@ if ($article->id > 0) {
 
 <script type="text/javascript">
 
+	function loadContent(data) {
+		window.location.href = "?" + data;
+	}
+
 	function showArticle(id) {
 		loadContent("display=article&id=" + id);
 	}
