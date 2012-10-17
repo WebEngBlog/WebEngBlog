@@ -8,7 +8,7 @@
 *******************************************************************************/
 
 
-class Modul {
+class Modul extends Object {
 
 	private static $modules = array();
 	
