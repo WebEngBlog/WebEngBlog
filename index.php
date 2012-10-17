@@ -58,6 +58,8 @@ $_POST = System::clean($_POST);
 
   <div class="row">
     <div class="twelve columns">
+      <h1>Welcome <small>This is our blog. Still in progress.</small>
+      
       <ul class="nav-bar">
         <li><a href="#">Last article</a></li>
         <li><a href="#">Link 2</a></li>
@@ -65,7 +67,6 @@ $_POST = System::clean($_POST);
         <li><a href="#">Archive</a></li>
       </ul>
 
-      <h1>Welcome <small>This is our blog. Still in progress.</small>
       <hr />
     </div>
   </div>

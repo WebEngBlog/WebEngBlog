@@ -73,7 +73,7 @@ $article = Modul::loadModul("articles", ADMIN)->getArticle((int) $_GET["id"]);
 $posts = Modul::loadModul("articles", ADMIN)->getAll();
 ?>
 <article>
-	<a href="?display=articles&func=create">Create New</a>
+	<a href="?display=articles&func=create"><input id="btn_create" type="button" name="create" value="Create New" /></a>
 	<table>
 <?php
 	foreach ($posts as $value) {

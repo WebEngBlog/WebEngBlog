@@ -69,7 +69,7 @@ $user = User::getUser((int) $_GET["id"]);
 $users = User::getUsers();
 ?>
 <article>
-	<a href="?display=users&func=register">Register New User</a>
+	<a href="?display=users&func=register"><input id="btn_register" type="button" name="register" value="Register New User" /></a>
 	<table>
 <?php
 	foreach ($users as $value) {

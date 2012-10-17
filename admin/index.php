@@ -68,6 +68,8 @@ if (isset($_POST["action"])) {
 
   <div class="row">
     <div class="twelve columns">
+      <h1>Admin Area</h1>
+      
       <ul class="nav-bar">
         <li><a href="#">Startseite</a></li>
         <li><a href="?display=articles">Articles</a></li>
@@ -75,7 +77,6 @@ if (isset($_POST["action"])) {
         <li><a href="#">Not Used</a></li>
       </ul>
 
-      <h1>Admin Area</h1>
       <hr />
     </div>
   </div>
