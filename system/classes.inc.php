@@ -15,7 +15,6 @@ $classes = array(
 );
 
 include(ROOT.S."system".S."framework".S."rb.php");
-
 R::setup("mysql:host=localhost;dbname=blog", "root", "");
 
 ?>
