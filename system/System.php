@@ -51,18 +51,13 @@ class System {
 		$display = $_GET["display"];
 		
 		if (!isset($display)) {
-			Modul::loadModul($default, $dir)->display();
-			return;
+			$display = $default;
 		}
 		
-		$moduls = explode(';', $display);
-		
-		foreach ($moduls as $modul) {
-			try {
-				Modul::loadModul($modul, $dir)->display();
-			} catch (Exception $e) {
-				echo $modul ." not found";
-			}
+		try {
+			Modul::loadModul($display, $dir)->display();
+		} catch (Exception $e) {
+			echo $display ." not found";
 		}
 	}
 }

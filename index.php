@@ -20,10 +20,11 @@ System::display(ROOT, "header");
 ?>	
 	<section id="content">
 		<?php 
-			System::display(ROOT, "article"); 
-			//Modul::loadModul("articles",ROOT)->display;
+			Modul::loadModul("article",ROOT)->display();
 		?>
 	</section>
-<?php 
-System::display(ROOT, "footer"); 
+<?php
+
+System::display(ROOT, "footer");
+
 ?>
