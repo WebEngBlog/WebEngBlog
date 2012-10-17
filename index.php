@@ -25,11 +25,5 @@ System::display(ROOT, "header");
 		?>
 	</section>
 <?php 
-<<<<<<< .merge_file_e11E6G
-}
-System::display(ROOT, "footer");
-
-=======
 System::display(ROOT, "footer"); 
->>>>>>> .merge_file_Q6fiA0
 ?>
