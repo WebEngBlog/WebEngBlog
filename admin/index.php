@@ -69,10 +69,10 @@ if (isset($_POST["action"])) {
   <div class="row">
     <div class="twelve columns">
       <ul class="nav-bar">
-        <li><a href="#">Last article</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
-        <li><a href="#">Archive</a></li>
+        <li><a href="#">Startseite</a></li>
+        <li><a href="?display=articles">Articles</a></li>
+        <li><a href="?display=users">Users</a></li>
+        <li><a href="#">Not Used</a></li>
       </ul>
 
       <h1>Admin Area</h1>
