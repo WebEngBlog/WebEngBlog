@@ -35,6 +35,7 @@ $_POST = System::clean($_POST);
 
   <link rel="stylesheet" href="foundation/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="foundation/stylesheets/app.css">
+  <link rel="stylesheet" href="foundation/stylesheets/style.css" />
 
   <script src="foundation/javascripts/modernizr.foundation.js"></script>
 
