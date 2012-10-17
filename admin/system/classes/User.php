@@ -19,9 +19,9 @@ class User {
 			return false;
 		}
 
-		$user = self::getUser($name);
+		$user = User::getUser($name);
 
-		if ($user->password === self::getHash($password)) {		
+		if ($user->password === User::getHash($password)) {		
 			$ip = System::getIp();
 			$browser = System::getBrowser();
 			
@@ -29,7 +29,7 @@ class User {
 
 			$session->setValue("userid", $user->id);
 			$session->setValue("username", $user->name);
-			$session->setValue("login", self::getHash($browser . $user->password . $ip));
+			$session->setValue("login", User::getHash($browser . $user->password . $ip));
 			
 			return true;
 		} else {
@@ -50,11 +50,11 @@ class User {
 			return false;
 		}
 
-		if (preg_match("/[[:space:]]+/", $password) > 0 || strlen($password) < self::PASSWORD_LENGTH) {
+		if (preg_match("/[[:space:]]+/", $password) > 0 || strlen($password) < User::PASSWORD_LENGTH) {
 			return false;
 		}
 
-		$user = self::getUser($name);
+		$user = User::getUser($name);
 			
 		if ($user->id) {
 			return false;
@@ -62,20 +62,20 @@ class User {
 
 		$user = R::dispense("user");
 		$user->name = $name;
-		$user->password = self::getHash($password);
+		$user->password = User::getHash($password);
 		$user->id = R::store($user);
 
 		return $user;
 	}
 
 	public static function edit($id, $oldpassword, $newpassword){
-		if (preg_match("/[[:space:]]+/", $newpassword) > 0 || strlen($newpassword) < self::PASSWORD_LENGTH) {
+		if (preg_match("/[[:space:]]+/", $newpassword) > 0 || strlen($newpassword) < User::PASSWORD_LENGTH) {
 			return false;
 		}
 
-		$user = self::getUser($id);
-		if($user->password == self::getHash($oldpassword)){
-			$user->password = self::getHash($newpassword);
+		$user = User::getUser($id);
+		if($user->password == User::getHash($oldpassword)){
+			$user->password = User::getHash($newpassword);
 		} else {
 			return false;
 		}
@@ -83,7 +83,7 @@ class User {
 	}
 
 	public static function delete($id){
-		$user = self::getUser($id);
+		$user = User::getUser($id);
 		
 		return R::trash($user);
 	}
@@ -103,7 +103,6 @@ class User {
 	}
 
 	public static function getUsers() {
-		//throw new BadMethodCallException("Not yet implemented");;
 		return R::findAll("user", " ORDER BY id DESC");	
 	}
 	
@@ -117,7 +116,7 @@ class User {
 			return false;
 		}
 		
-		$user = self::getUser($id);
+		$user = User::getUser($id);
 		
 		if (!$user->id || $user->name !== $name) {
 			return false;
@@ -126,7 +125,7 @@ class User {
 		$ip = System::getIp();
 		$browser = System::getBrowser();
 		
-		if ($login !== self::getHash($browser . $user->password . $ip)) {
+		if ($login !== User::getHash($browser . $user->password . $ip)) {
 			return false;
 		}
 		
