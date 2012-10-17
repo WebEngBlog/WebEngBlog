@@ -29,7 +29,7 @@ if (isset($_POST["action"])) {
 ?>
 
 <!DOCTYPE html>
-
+<html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -68,13 +68,13 @@ if (isset($_POST["action"])) {
 
   <div class="row">
     <div class="twelve columns">
-      <h1>Admin Area</h1>
-      
+      <h1>Admin Area
+
       <ul class="nav-bar">
-        <li><a href="#">Startseite</a></li>
+        <li><a href="../index.php">Startseite</a></li>
         <li><a href="?display=articles">Articles</a></li>
         <li><a href="?display=users">Users</a></li>
-        <li><a href="#">Not Used</a></li>
+        <li><a href="#">Logout (?)</a></li>
       </ul>
 
       <hr />

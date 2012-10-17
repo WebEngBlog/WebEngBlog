@@ -19,7 +19,7 @@ $_POST = System::clean($_POST);
 ?>
 
 <!DOCTYPE html>
-
+<html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -61,10 +61,10 @@ $_POST = System::clean($_POST);
       <h1>Welcome <small>This is our blog. Still in progress.</small>
       
       <ul class="nav-bar">
-        <li><a href="#">Last article</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
-        <li><a href="#">Archive</a></li>
+        <li><a href="index.php">Startseite</a></li>
+        <li><a href="admin/index.php">Admin Area</a></li>
+        <li><a href="#">Not Used</a></li>
+        <li><a href="#">Not Used</a></li>
       </ul>
 
       <hr />
