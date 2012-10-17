@@ -160,4 +160,3 @@ if (User::isLoggedIn()) {
 
 </body>
 </html>
-
