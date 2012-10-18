@@ -26,6 +26,11 @@ if (isset($_POST["action"])) {
 	Modul::loadModul($_POST["action"], ADMIN)->execute();
 }
 
+if (isset($_GET["logout"])) {
+  UserManagement::logout();
+  //echo '<script type="text/javascript">window.location.href="../index.php";</script>';  
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +80,7 @@ if (isset($_POST["action"])) {
         <li><a href="../index.php">Home</a></li>
         <li><a href="?display=article">Articles</a></li>
         <li><a href="?display=user">Users</a></li>
-        <li><a href="#">Logout (?)</a></li>
+        <li><a href="?logout=true">Logout</a></li>
       </ul>
     </div>
   </div>

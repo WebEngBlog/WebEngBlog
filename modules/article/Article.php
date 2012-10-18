@@ -24,6 +24,13 @@ class Article extends Modul {
 	public static function getAll() {
 		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
+
+	public function &getAllArticleWithTag($tag) {
+		if (!is_string($tag)){
+			throw new InvalidArgumentException($tag ." is not a string");
+		}
+		return R::find("article", "tags LIKE '%" . $tag . "%'");
+	}
 }
 
 ?>

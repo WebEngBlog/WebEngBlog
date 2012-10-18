@@ -1,5 +1,5 @@
-<section id="login" >
-	<h1>Login</h1>
+<article>
+	<h3>Login</h3>
 	<form action="" method="post">
 		<fieldset class="login_border">
 			<label id="lbl_username" class="login_label" for="username">Benutzername</label>
@@ -10,4 +10,4 @@
 		<input id="btn_login" type="submit" name="login" value="Anmelden" />
 		<input type="hidden" name="action" value="login" />
 	</form>
-</section>
+</article>

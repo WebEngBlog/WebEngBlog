@@ -38,7 +38,7 @@ class UserManagement {
 	}
 	
 	public static function logout() {
-		Session::destroy();
+		Session::getSession()->destroy();
 	}
 
 	public static function register($name, $password) {

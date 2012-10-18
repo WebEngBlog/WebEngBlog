@@ -9,7 +9,27 @@
 ?>
 
 <?php
-if (isset($_GET["id"]) && $_GET["id"] > 0) {
+if (isset($_GET["tag"])) {
+
+$posts = Modul::loadModul("article", ROOT)->getAllArticleWithTag($_GET[tag]);
+
+foreach ($posts as $article) {
+	?><article>
+		<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
+		<h6>Written by <a href="#"><?php echo $article->author; ?></a> on <?php echo $article->creation_date; ?>.</h6>
+		<p><?php echo $article->content; ?></p>
+<?php
+		$tags = explode(";", $article->tags);
+		foreach ($tags as $tag) {
+?>
+			<a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a>
+<?php
+		}
+	?></article><?php 
+}
+?>
+<?php
+ } elseif (isset($_GET["id"]) && $_GET["id"] > 0) {
 
 $article = Modul::loadModul("article", ROOT)->getArticle((int) $_GET["id"]);
 ?>
@@ -25,7 +45,7 @@ if ($article->id > 0) {
 	$tags = explode(";", $article->tags);
 	foreach ($tags as $tag) {
 ?>
-		<a><?php echo $tag; ?></a>
+		<a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a>
 <?php
 	}
 } else {
