@@ -146,8 +146,8 @@ if (UserManagement::isLoggedIn()) {
         </div>
         <div class="six columns">
           <ul class="link-list right">
-            <li><a href="#">Impressum (?)</a></li>
-            <li><a href="#">Contact (?)</a></li>
+            <li><a href="?display=about">About</a></li>
+            <li><a href="?display=contact">Contact</a></li>
           </ul>
         </div>
       </div>
