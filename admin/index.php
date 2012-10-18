@@ -73,8 +73,8 @@ if (isset($_POST["action"])) {
 
       <ul class="nav-bar">
         <li><a href="../index.php">Home</a></li>
-        <li><a href="?display=articles">Articles</a></li>
-        <li><a href="?display=users">Users</a></li>
+        <li><a href="?display=article">Articles</a></li>
+        <li><a href="?display=user">Users</a></li>
         <li><a href="#">Logout (?)</a></li>
       </ul>
     </div>
@@ -91,11 +91,11 @@ if (isset($_POST["action"])) {
     <div class="nine columns" role="content">
 
 <?php 
-if (User::isLoggedIn()) {
+if (UserManagement::isLoggedIn()) {
 	if(isset($_GET["display"])){
 		Modul::loadModul($_GET["display"], ADMIN)->display();
 	} else {
-		Modul::loadModul("articles", ADMIN)->display();
+		Modul::loadModul("article", ADMIN)->display();
 	}
 } else {
 	Modul::loadModul("login", ADMIN)->display();
@@ -111,6 +111,7 @@ if (User::isLoggedIn()) {
 
     <aside class="three columns">
 
+      <!--
       <h5>Categories</h5>
       <ul class="side-nav">
         <li><a href="#">News</a></li>
@@ -119,11 +120,11 @@ if (User::isLoggedIn()) {
         <li><a href="#">Fun</a></li>
         <li><a href="#">Weasels</a></li>
       </ul>
+      -->
 
       <div class="panel">
-        <h5>Featured</h5>
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-        <a href="#">Read More &rarr;</a>
+        <h5>Tags</h5>
+        <?php Modul::loadModul("tag", ROOT)->display(); ?>
       </div>
 
     </aside>

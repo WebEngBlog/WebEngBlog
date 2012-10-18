@@ -7,7 +7,7 @@
 * @version		0.9
 *******************************************************************************/
 
-class User {
+class UserManagement {
 
 	const PASSWORD_LENGTH = 0;
 
@@ -19,9 +19,9 @@ class User {
 			return false;
 		}
 
-		$user = User::getUser($name);
+		$user = UserManagement::getUser($name);
 
-		if ($user->password === User::getHash($password)) {		
+		if ($user->password === UserManagement::getHash($password)) {		
 			$ip = System::getIp();
 			$browser = System::getBrowser();
 			
@@ -29,7 +29,7 @@ class User {
 
 			$session->setValue("userid", $user->id);
 			$session->setValue("username", $user->name);
-			$session->setValue("login", User::getHash($browser . $user->password . $ip));
+			$session->setValue("login", UserManagement::getHash($browser . $user->password . $ip));
 			
 			return true;
 		} else {
@@ -54,7 +54,7 @@ class User {
 			return false;
 		}
 
-		$user = User::getUser($name);
+		$user = UserManagement::getUser($name);
 			
 		if ($user->id) {
 			return false;
@@ -62,7 +62,7 @@ class User {
 
 		$user = R::dispense("user");
 		$user->name = $name;
-		$user->password = User::getHash($password);
+		$user->password = UserManagement::getHash($password);
 		$user->id = R::store($user);
 
 		return $user;
@@ -73,9 +73,9 @@ class User {
 			return false;
 		}
 
-		$user = User::getUser($id);
-		if($user->password == User::getHash($oldpassword)){
-			$user->password = User::getHash($newpassword);
+		$user = UserManagement::getUser($id);
+		if($user->password == UserManagement::getHash($oldpassword)){
+			$user->password = UserManagement::getHash($newpassword);
 		} else {
 			return false;
 		}
@@ -83,7 +83,7 @@ class User {
 	}
 
 	public static function delete($id){
-		$user = User::getUser($id);
+		$user = UserManagement::getUser($id);
 		
 		return R::trash($user);
 	}
@@ -116,7 +116,7 @@ class User {
 			return false;
 		}
 		
-		$user = User::getUser($id);
+		$user = UserManagement::getUser($id);
 		
 		if (!$user->id || $user->name !== $name) {
 			return false;
@@ -125,7 +125,7 @@ class User {
 		$ip = System::getIp();
 		$browser = System::getBrowser();
 		
-		if ($login !== User::getHash($browser . $user->password . $ip)) {
+		if ($login !== UserManagement::getHash($browser . $user->password . $ip)) {
 			return false;
 		}
 		

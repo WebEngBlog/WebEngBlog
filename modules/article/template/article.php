@@ -46,7 +46,7 @@ foreach ($posts as $value) {
 		<h3><a href="?display=article&id=<?php echo $value->id ?>"><?php echo $value->title; ?></a></h3>
 		<h6>Written by <a href="#"><?php echo $value->author; ?></a> on <?php echo $value->creation_date; ?>.</h6>
 		<?php echo substr($value->content, 0, 400)?>
-		<?php echo '<a href="?display=article&id='. $value->id .'" >More...</a>'
+		<?php echo '<a href="?display=article&id='. $value->id .'" >More &rarr;</a>'
 	?></article><?php 
 }
 }

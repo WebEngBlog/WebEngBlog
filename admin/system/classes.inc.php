@@ -9,7 +9,7 @@
 
 
 $classes_admin = array(
-	"User" => "admin".S."system".S."classes".S."User.php",
+	"UserManagement" => "admin".S."system".S."classes".S."UserManagement.php",
 	"Session" => "admin".S."system".S."classes".S."Session.php"
 );
 

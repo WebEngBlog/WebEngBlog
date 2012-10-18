@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
-* users template for the backend (admin area)
+* user template for the backend (admin area)
 * 
 * @author 		Tobias Röding
 * @copyright	Tobias Röding, 14.10.2012
@@ -10,7 +10,7 @@
 
 <?php
 if ($_GET["func"] == "edit" && isset($_GET["id"]) && $_GET["id"] > 0) {
-$user = User::getUser((int) $_GET["id"]);
+$user = UserManagement::getUser((int) $_GET["id"]);
 ?>
 
 <article>
@@ -21,9 +21,9 @@ $user = User::getUser((int) $_GET["id"]);
 		<input id="in_oldpassword" class="edit_field" type="password" name="oldpassword" /><br>
 		<label id="lbl_newpassword" class="edit_label" for="password">New Password</label>
 		<input id="in_newpassword" class="edit_field" type="password" name="newpassword" /><br>
-		<input id="btn_login" type="submit" name="edit" value="Change Password" />
-		<a href="?display=users"><input id="btn_back" type="button" name="back" value="Back" /></a>
-		<input type="hidden" name="action" value="users" />
+		<input id="btn_edit" type="submit" name="edit" value="Change Password" />
+		<a href="?display=user"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input type="hidden" name="action" value="user" />
 		<input type="hidden" name="edit" value="true" />
 	</form>
 </article>
@@ -37,8 +37,8 @@ $user = User::getUser((int) $_GET["id"]);
 	<form action="" method="post">
 		<p>Do you really want to delete the user?</p>
 		<input id="btn_delete" type="submit" name="delete" value="Delete" />
-		<a href="?display=users"><input id="btn_back" type="button" name="back" value="Back" /></a>
-		<input type="hidden" name="action" value="users" />
+		<a href="?display=user"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input type="hidden" name="action" value="user" />
 		<input type="hidden" name="delete" value="true" />
 	</form>
 </section>
@@ -54,9 +54,9 @@ $user = User::getUser((int) $_GET["id"]);
 		<input id="in_username" class="input_field" type="text" name="username" /><br>
 		<label id="lbl_password" class="register_label" for="password">Password</label>
 		<input id="in_password" class="input_field" type="password" name="password" /><br>
-		<input id="btn_login" type="submit" name="register" value="Register" />
-		<a href="?display=users"><input id="btn_back" type="button" name="back" value="Back" /></a>
-		<input type="hidden" name="action" value="users" />
+		<input id="btn_register" type="submit" name="register" value="Register" />
+		<a href="?display=user"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input type="hidden" name="action" value="user" />
 		<input type="hidden" name="register" value="true" />
 	</form>
 </article>
@@ -65,18 +65,23 @@ $user = User::getUser((int) $_GET["id"]);
 <?php
 } else {
 
-$users = User::getUsers();
+$user = UserManagement::getUsers();
 ?>
 <article>
-	<a href="?display=users&func=register"><input id="btn_register" type="button" name="register" value="Register New User" /></a>
+	<h5><a href="?display=user&func=register">Register New User</a></h5><br>
 	<table>
+		<colgroup>
+    		<col width="200">
+    		<col width="200">
+    		<col width="200">
+  		</colgroup>
 <?php
-	foreach ($users as $value) {
+	foreach ($user as $value) {
 ?>
 		<tr>
 			<td><?php echo $value->name; ?></td>
-			<td><a href="?display=users&func=edit&id=<?php echo $value->id ?>">Change Password</a></td>
-			<td><a href="?display=users&func=delete&id=<?php echo $value->id ?>">Delete</a></td>
+			<td><a href="?display=user&func=edit&id=<?php echo $value->id ?>">Change Password</a></td>
+			<td><a href="?display=user&func=delete&id=<?php echo $value->id ?>">Delete</a></td>
 		</tr>
 
 <?php 

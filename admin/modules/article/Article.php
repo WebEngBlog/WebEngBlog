@@ -1,13 +1,13 @@
 <?php
 /*******************************************************************************
-* Articles modul for the backend (admin area)
+* article modul for the backend (admin area)
 * 
 * @author 		Tobias Röding
 * @copyright	Tobias Röding, 14.10.2012
 * @version		0.9
 *******************************************************************************/
 
-class Articles extends Modul {
+class Article extends Modul {
 
 	public function execute() {
 		if(isset($_POST["create"])){

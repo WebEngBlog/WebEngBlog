@@ -90,7 +90,8 @@ $_POST = System::clean($_POST);
     <!-- Sidebar -->
 
     <aside class="three columns">
-
+      
+      <!--
       <h5>Categories</h5>
       <ul class="side-nav">
         <li><a href="#">News</a></li>
@@ -99,8 +100,10 @@ $_POST = System::clean($_POST);
         <li><a href="#">Fun</a></li>
         <li><a href="#">Weasels</a></li>
       </ul>
+      -->
 
       <div class="panel">
+        <h5>Tags</h5>
         <?php Modul::loadModul("tag", ROOT)->display(); ?>
       </div>
 

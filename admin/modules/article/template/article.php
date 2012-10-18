@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
-* articles template for the backend (admin area)
+* article template for the backend (admin area)
 * 
 * @author 		Tobias Röding
 * @copyright	Tobias Röding, 14.10.2012
@@ -12,7 +12,7 @@
 
 if ($_GET["func"] == "edit" && isset($_GET["id"]) && $_GET["id"] > 0) {
 
-$article = Modul::loadModul("articles", ADMIN)->getArticle((int) $_GET["id"]);
+$article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 
 ?>
 
@@ -26,8 +26,8 @@ $article = Modul::loadModul("articles", ADMIN)->getArticle((int) $_GET["id"]);
 		<label id="lbl_tags" class="tag_label" for="tags">Tags</label><br>
 		<input id="in_tags" class="input_field" type="text" name="tags" value="<?php echo $article->tags; ?>" /><br>
 		<input id="btn_save" type="submit" name="save" value="Save" />
-		<a href="?display=articles"><input id="btn_back" type="button" name="back" value="Back" /></a>
-		<input type="hidden" name="action" value="articles" />
+		<a href="?display=article"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="edit" value="true" />
 	</form>
 </article>
@@ -41,8 +41,8 @@ $article = Modul::loadModul("articles", ADMIN)->getArticle((int) $_GET["id"]);
 	<form action="" method="post">
 		<p>Do you really want to delete the article?</p>
 		<input id="btn_delete" type="submit" name="delete" value="Delete" />
-		<a href="?display=articles"><input id="btn_back" type="button" name="back" value="Back" /></a>
-		<input type="hidden" name="action" value="articles" />
+		<a href="?display=article"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="delete" value="true" />
 	</form>
 </article>
@@ -61,8 +61,8 @@ $article = Modul::loadModul("articles", ADMIN)->getArticle((int) $_GET["id"]);
 		<label id="lbl_tags" class="tag_label" for="tags">Tags</label><br>
 		<input id="in_tags" class="input_field" type="text" name="tags" /><br>
 		<input id="btn_save" type="submit" name="save" value="Save" />
-		<a href="?display=articles"><input id="btn_back" type="button" name="back" value="Back" /></a>
-		<input type="hidden" name="action" value="articles" />
+		<a href="?display=article"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="create" value="true" />
 	</form>
 </article>
@@ -70,18 +70,24 @@ $article = Modul::loadModul("articles", ADMIN)->getArticle((int) $_GET["id"]);
 <?php
 } else {
 
-$posts = Modul::loadModul("articles", ADMIN)->getAll();
+$posts = Modul::loadModul("article", ADMIN)->getAll();
 ?>
 <article>
-	<a href="?display=articles&func=create"><input id="btn_create" type="button" name="create" value="Create New" /></a>
+	<h5><a href="?display=article&func=create">Create New</a></h5><br>
+	
 	<table>
+		<colgroup>
+    		<col width="200">
+    		<col width="200">
+    		<col width="200">
+  		</colgroup>
 <?php
 	foreach ($posts as $value) {
 ?>
 		<tr>
 			<td><?php echo $value->title; ?></td>
-			<td><a href="?display=articles&func=edit&id=<?php echo $value->id ?>">Edit</a></td>
-			<td><a href="?display=articles&func=delete&id=<?php echo $value->id ?>">Delete</a></td>
+			<td><a href="?display=article&func=edit&id=<?php echo $value->id ?>">Edit</a></td>
+			<td><a href="?display=article&func=delete&id=<?php echo $value->id ?>">Delete</a></td>
 		</tr>
 
 <?php 
