@@ -23,10 +23,10 @@ class Session {
 	 * @return Session
 	 */
 	public static function getSession() {
-		if (self::$session === null) {
-			self::$session = new Session();
+		if (Session::$session === null) {
+			Session::$session = new Session();
 		}
-		return self::$session;
+		return Session::$session;
 	}
 
 	public function start() {
@@ -41,7 +41,7 @@ class Session {
 		
 		$cookieParams = session_get_cookie_params();
 				
-		session_set_cookie_params(60 * 15, $cookieParams["path"], $cookieParams["domain"], self::SECURE, $httponly);
+		session_set_cookie_params(60 * 15, $cookieParams["path"], $cookieParams["domain"], Session::SECURE, $httponly);
 		
 		session_name($session);
 

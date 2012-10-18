@@ -11,20 +11,20 @@ class Config {
 	
 	public static function setConfig($config) {
 		if (is_array($config)) {
-			self::$config = $config;
+			Config::$config = $config;
 			return true;
 		}
 		return false;
 	}
 	
 	public static function &getInstance() {
-		if (self::$instance === null) {
-			self::$instance = new Config();
+		if (Config::$instance === null) {
+			Config::$instance = new Config();
 		}
-		return self::$instance;
+		return Config::$instance;
 	}
 	
 	public function __get($key) {
-		return array_key_exists($key, self::$config) ? self::$config[$key] : null;
+		return array_key_exists($key, Config::$config) ? Config::$config[$key] : null;
 	}
 }

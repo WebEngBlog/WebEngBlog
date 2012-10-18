@@ -45,6 +45,7 @@ if (isset($_POST["action"])) {
 
   <link rel="stylesheet" href="../foundation/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="../foundation/stylesheets/app.css">
+  <link rel="stylesheet" href="../foundation/stylesheets/style.css" />
 
   <script src="../foundation/javascripts/modernizr.foundation.js"></script>
 
@@ -160,4 +161,3 @@ if (User::isLoggedIn()) {
 
 </body>
 </html>
-

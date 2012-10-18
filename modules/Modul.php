@@ -14,7 +14,7 @@ class Modul extends Object {
 	
 	private $root = null;
 
-	public function display($template = null) {
+	public function display($template = null) {		
 		if (is_string($template)) {
 			$file = $this->root.S."modules".S.$template.S."template".S.$template.".php";
 		} else {

@@ -13,7 +13,7 @@ class Article extends Modul {
 		
 	}
 	
-	public function &getArticle($id) {
+	public function getArticle($id) {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
@@ -21,7 +21,7 @@ class Article extends Modul {
 		return R::load("article", $id);
 	}
 
-	public static function &getAll() {
+	public static function getAll() {
 		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
 }

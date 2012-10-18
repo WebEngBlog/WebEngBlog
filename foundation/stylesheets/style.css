@@ -20,7 +20,7 @@ input.input_field {
 	float: right;	
 }
 	
-fieldset {
+fieldset.login_border {
 	padding: 0px;
 	margin: 0px;
 	border: none;

@@ -35,6 +35,7 @@ $_POST = System::clean($_POST);
 
   <link rel="stylesheet" href="foundation/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="foundation/stylesheets/app.css">
+  <link rel="stylesheet" href="foundation/stylesheets/style.css" />
 
   <script src="foundation/javascripts/modernizr.foundation.js"></script>
 
@@ -81,7 +82,7 @@ $_POST = System::clean($_POST);
     <!-- Main Blog Content -->
     <div class="nine columns" role="content">
 
-      <?php Modul::loadModul("article",ROOT)->display(); ?>
+      <?php System::display(ROOT, "article"); ?>
 
     </div>
 
@@ -102,9 +103,7 @@ $_POST = System::clean($_POST);
       </ul>
 
       <div class="panel">
-        <h5>Featured</h5>
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-        <a href="#">Read More &rarr;</a>
+        <?php Modul::loadModul("tag", ROOT)->display(); ?>
       </div>
 
     </aside>

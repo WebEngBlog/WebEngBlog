@@ -10,3 +10,5 @@ class Object {
 		throw new BadMethodCallException($key ." is not a valid attribute");
 	}
 }
+
+?>
