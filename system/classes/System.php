@@ -22,7 +22,7 @@ class System {
 	}
 	
 	public static function isDebugging() {
-		return true;
+		return false;
 	}
 	
 	public static function getIp() {

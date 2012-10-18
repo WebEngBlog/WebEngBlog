@@ -16,8 +16,7 @@ $user = User::getUser((int) $_GET["id"]);
 <article>
 	<h3>Change Password</h3>
 	<form action="" method="post">
-		<label id="lbl_username" class="edit_label" for="username">User:</label>
-		<label id="lbl_username" class="edit_label" for="username"><?php echo $user->name; ?></label><br>
+		<h5>User: <?php echo $user->name; ?></h5>
 		<label id="lbl_oldpassword" class="edit_label" for="password">Old Password</label>
 		<input id="in_oldpassword" class="edit_field" type="password" name="oldpassword" /><br>
 		<label id="lbl_newpassword" class="edit_label" for="password">New Password</label>
