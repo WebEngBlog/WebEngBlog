@@ -77,8 +77,6 @@ if (isset($_POST["action"])) {
         <li><a href="?display=users">Users</a></li>
         <li><a href="#">Logout (?)</a></li>
       </ul>
-
-      <hr />
     </div>
   </div>
 
@@ -149,8 +147,6 @@ if (User::isLoggedIn()) {
           <ul class="link-list right">
             <li><a href="#">Impressum (?)</a></li>
             <li><a href="#">Contact (?)</a></li>
-            <li><a href="#">Not Used</a></li>
-            <li><a href="#">Not Used</a></li>
           </ul>
         </div>
       </div>

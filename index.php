@@ -67,8 +67,6 @@ $_POST = System::clean($_POST);
         <li><a href="#">Not Used</a></li>
         <li><a href="#">Not Used</a></li>
       </ul>
-
-      <hr />
     </div>
   </div>
 
@@ -127,8 +125,6 @@ $_POST = System::clean($_POST);
           <ul class="link-list right">
             <li><a href="#">Impressum (?)</a></li>
             <li><a href="#">Contact (?)</a></li>
-            <li><a href="#">Not Used</a></li>
-            <li><a href="#">Not Used</a></li>
           </ul>
         </div>
       </div>
