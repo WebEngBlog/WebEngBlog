@@ -74,7 +74,7 @@ class Modul extends Object {
 			throw new InvalidArgumentException("'". $class ."' is not an instance of 'Modul'");
 		}
 
-		self::$modules[$class] = $modul;
+		Modul::$modules[$class] = $modul;
 
 		return $modul;
 	}

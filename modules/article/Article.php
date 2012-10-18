@@ -25,14 +25,14 @@ class Article extends Modul {
 		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
 
-	public function &getAllArticleWithTag($tag) {
+	public function getAllArticleWithTag($tag) {
 		if (!is_string($tag)){
 			throw new InvalidArgumentException($tag ." is not a string");
 		}
 		return R::find("article", "tags LIKE '%" . $tag . "%'");
 	}
 
-	public function &getAllArticleWithAuthor($author) {
+	public function getAllArticleWithAuthor($author) {
 		if (!is_int($author)){
 			throw new InvalidArgumentException($tag ." is not a string");
 		}
