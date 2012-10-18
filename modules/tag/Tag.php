@@ -12,7 +12,7 @@ class Tag extends Modul {
 		
 		$tag_count = array();
 		foreach ($articles as $article) {
-			$tags = explode(" ", preg_replace("/\s{2,}/", " ", $article->tags));
+			$tags = explode(";", $article->tags);
 			foreach ($tags as $tag) {
 				if (array_key_exists($tag, $tag_count)) {
 					$tag_count[$tag]++;
@@ -23,7 +23,7 @@ class Tag extends Modul {
 		}
 		krsort($tag_count);
 		
-		while (count($tag_count) > self::MAX_TAGS) {
+		while (count($tag_count) > Tag::MAX_TAGS) {
 			unset($tag_count[array_search(min($tag_count), $tag_count)]);
 		}
 		
