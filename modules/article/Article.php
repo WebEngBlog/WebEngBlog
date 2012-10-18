@@ -31,6 +31,13 @@ class Article extends Modul {
 		}
 		return R::find("article", "tags LIKE '%" . $tag . "%'");
 	}
+
+	public function &getAllArticleWithAuthor($author) {
+		if (!is_int($author)){
+			throw new InvalidArgumentException($tag ." is not a string");
+		}
+		return R::find("article", "author == '" . $author . "'");
+	}
 }
 
 ?>
