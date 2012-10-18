@@ -52,6 +52,8 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 	<form action="" method="post">
 		<label id="lbl_username" class="register_label" for="username">Username</label>
 		<input id="in_username" class="input_field" type="text" name="username" /><br>
+		<label id="lbl_fullname" class="register_label" for="fullname">Fullname</label>
+		<input id="in_fullname" class="input_field" type="text" name="fullname" /><br>
 		<label id="lbl_password" class="register_label" for="password">Password</label>
 		<input id="in_password" class="input_field" type="password" name="password" /><br>
 		<input id="btn_register" type="submit" name="register" value="Register" />
@@ -71,15 +73,17 @@ $user = UserManagement::getUsers();
 	<h5><a href="?display=user&func=register">Register New User</a></h5><br>
 	<table>
 		<colgroup>
-    		<col width="200">
-    		<col width="200">
-    		<col width="200">
+    		<col width="25%">
+    		<col width="25%">
+    		<col width="25%">
+    		<col width="25%">
   		</colgroup>
 <?php
 	foreach ($user as $value) {
 ?>
 		<tr>
 			<td><?php echo $value->name; ?></td>
+			<td><?php echo $value->fullname; ?></td>
 			<td><a href="?display=user&func=edit&id=<?php echo $value->id ?>">Change Password</a></td>
 			<td><a href="?display=user&func=delete&id=<?php echo $value->id ?>">Delete</a></td>
 		</tr>

@@ -78,14 +78,17 @@ $posts = Modul::loadModul("article", ADMIN)->getAll();
 	<table>
 		<colgroup>
     		<col width="200">
-    		<col width="200">
-    		<col width="200">
+    		<col width="100">
+    		<col width="100">
+    		<col width="100">
   		</colgroup>
 <?php
 	foreach ($posts as $value) {
+		$user = R::load("user", $value->author);
 ?>
 		<tr>
 			<td><?php echo $value->title; ?></td>
+			<td><?php echo $user->name; ?></td>
 			<td><a href="?display=article&func=edit&id=<?php echo $value->id ?>">Edit</a></td>
 			<td><a href="?display=article&func=delete&id=<?php echo $value->id ?>">Delete</a></td>
 		</tr>

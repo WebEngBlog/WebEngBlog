@@ -41,12 +41,16 @@ class UserManagement {
 		Session::getSession()->destroy();
 	}
 
-	public static function register($name, $password) {
+	public static function register($name, $fullname, $password) {
 		if (!is_string($name) || !is_string($password)) {
 			return false;
 		}
 
 		if (preg_match("/[^a-zA-Z0-9_\-]+/", $name) > 0 || strlen($name) > 50 || strlen($name) === 0) {
+			return false;
+		}
+
+		if (strlen($fullname) > 50 || strlen($fullname) === 0) {
 			return false;
 		}
 
@@ -62,6 +66,7 @@ class UserManagement {
 
 		$user = R::dispense("user");
 		$user->name = $name;
+		$user->fullname = $fullname;
 		$user->password = UserManagement::getHash($password);
 		$user->id = R::store($user);
 

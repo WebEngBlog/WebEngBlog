@@ -15,6 +15,7 @@ $posts = Modul::loadModul("article", ROOT)->getAllArticleWithTag($_GET[tag]);
 
 foreach ($posts as $article) {
 	$user = R::load("user", $article->author);
+	$article->content = str_replace("\n", "<br>", $article->content);
 	?><article>
 		<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
 		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
@@ -36,6 +37,7 @@ $posts = Modul::loadModul("article", ROOT)->getAllArticleWithAuthor((int) $_GET[
 
 foreach ($posts as $article) {
 	$user = R::load("user", $article->author);
+	$article->content = str_replace("\n", "<br>", $article->content);
 	?><article>
 		<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
 		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
@@ -60,6 +62,7 @@ $user = R::load("user", $article->author);
 <article>
 <?php
 if ($article->id > 0) {
+	$article->content = str_replace("\n", "<br>", $article->content);	
 ?>
 		<h3><a href="#"><?php echo $article->title; ?></a></h3>
 		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
@@ -86,10 +89,20 @@ $posts = Modul::loadModul("article", ROOT)->getAll();
 
 foreach ($posts as $article) {
 	$user = R::load("user", $article->author);
+	$article->content = str_replace("\n", "<br>", $article->content);
+	if(substr_count($article->content, "<br>") > 3){
+		$offset = 0;
+		for( $i = 1; $i <= 3; $i++){
+			$offset = strpos($article->content, "<br>", $offset + 1);
+		}
+		$article->content = substr($article->content, 0, $offset);
+	} else {
+		$article->content = substr($article->content, 0, 400);
+	}
 	?><article>
-		<h3><a href="?display=article&id=<?php echo $value->id ?>"><?php echo $article->title; ?></a></h3>
+		<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
 		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
-		<?php echo substr($article->content, 0, 400)?>
+		<?php echo $article->content; ?>
 		<?php echo '<a href="?display=article&id='. $article->id .'" >More &rarr;</a>'
 	?></article><?php 
 }

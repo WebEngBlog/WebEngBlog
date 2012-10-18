@@ -11,7 +11,7 @@ class User extends Modul {
 
 	public function execute() {
 		if(isset($_POST["register"])){
-			UserManagement::register($_POST["username"], $_POST["password"]);
+			UserManagement::register($_POST["username"],$_POST["fullname"],$_POST["password"]);
 		} elseif (isset($_POST["edit"])) {
 			$return = UserManagement::edit((int) $_GET["id"], $_POST["oldpassword"], $_POST["newpassword"]);
 			if($return == false){
