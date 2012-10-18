@@ -50,7 +50,7 @@ class UserManagement {
 			return false;
 		}
 
-		if (preg_match("/[[:space:]]+/", $password) > 0 || strlen($password) < User::PASSWORD_LENGTH) {
+		if (preg_match("/[[:space:]]+/", $password) > 0 || strlen($password) < UserManagement::PASSWORD_LENGTH) {
 			return false;
 		}
 
@@ -69,7 +69,7 @@ class UserManagement {
 	}
 
 	public static function edit($id, $oldpassword, $newpassword){
-		if (preg_match("/[[:space:]]+/", $newpassword) > 0 || strlen($newpassword) < User::PASSWORD_LENGTH) {
+		if (preg_match("/[[:space:]]+/", $newpassword) > 0 || strlen($newpassword) < UserManagement::PASSWORD_LENGTH) {
 			return false;
 		}
 

@@ -6,7 +6,7 @@ class Login extends Modul {
 		$name = $_POST["username"];
 		$password = $_POST["password"];
 		
-		User::login($name, $password);
+		UserManagement::login($name, $password);
 	}
 }
 

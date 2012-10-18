@@ -2,8 +2,8 @@
 /*******************************************************************************
 * article modul for the backend (admin area)
 * 
-* @author 		Tobias Röding
-* @copyright	Tobias Röding, 14.10.2012
+* @author 		Tobias RÃ¶ding
+* @copyright	Tobias RÃ¶ding, 14.10.2012
 * @version		0.9
 *******************************************************************************/
 
@@ -37,7 +37,7 @@ class Article extends Modul {
 		$article = R::dispense("article");
 		$article->title = $title;
 		$article->content = $content;
-		$article->author = User::getLoggedInUserID();
+		$article->author = UserManagement::getLoggedInUserID();
 		$article->tags = $tags;
 		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');
@@ -52,7 +52,7 @@ class Article extends Modul {
 		$article = R::load("article", $id);
 		$article->title = $title;
 		$article->content = $content;
-		$article->author = User::getLoggedInUserID();
+		$article->author = UserManagement::getLoggedInUserID();
 		$article->tags = $tags;
 		date_default_timezone_set('UTC');
 		$article->last_edit = date('Y-m-d H:i:s');

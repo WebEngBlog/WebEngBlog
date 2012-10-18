@@ -13,7 +13,7 @@ class User extends Modul {
 		if(isset($_POST["register"])){
 			UserManagement::register($_POST["username"], $_POST["password"]);
 		} elseif (isset($_POST["edit"])) {
-			$return = User::edit((int) $_GET["id"], $_POST["oldpassword"], $_POST["newpassword"]);
+			$return = UserManagement::edit((int) $_GET["id"], $_POST["oldpassword"], $_POST["newpassword"]);
 			if($return == false){
 				echo '<script type="text/javascript">window.location.href="?display=user&func=edit&id='.$_GET["id"].'";</script>';
 			}
