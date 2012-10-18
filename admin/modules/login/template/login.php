@@ -1,4 +1,4 @@
-<article>
+<article id="login">
 	<h3>Login</h3>
 	<form action="" method="post">
 		<fieldset class="login_border">

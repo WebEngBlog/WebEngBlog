@@ -101,7 +101,12 @@ $_POST = System::clean($_POST);
         <li><a href="#">Weasels</a></li>
       </ul>
       -->
-
+      
+      <div class="panel">
+        <h5>Search</h5>
+        <?php Modul::loadModul("search", ROOT)->display(); ?>
+      </div>
+      
       <div class="panel">
         <h5>Tags</h5>
         <?php Modul::loadModul("tag", ROOT)->display(); ?>
