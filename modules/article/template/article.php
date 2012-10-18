@@ -22,7 +22,7 @@ if ($article->id > 0) {
 		<h6>Written by <a href="#"><?php echo $article->author; ?></a> on <?php echo $article->creation_date; ?>.</h6>
 		<p><?php echo $article->content; ?></p>
 <?php
-	$tags = preg_split("/[\;]+/", $article->tags);
+	$tags = explode(";", $article->tags);
 	foreach ($tags as $tag) {
 ?>
 		<a><?php echo $tag; ?></a>
