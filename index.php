@@ -62,7 +62,7 @@ $_POST = System::clean($_POST);
       <h1>Welcome <small>This is our blog. Still in progress.</small>
       
       <ul class="nav-bar">
-        <li><a href="index.php">Startseite</a></li>
+        <li><a href="index.php">Home</a></li>
         <li><a href="admin/index.php">Admin Area</a></li>
         <li><a href="#">Not Used</a></li>
         <li><a href="#">Not Used</a></li>
@@ -125,10 +125,10 @@ $_POST = System::clean($_POST);
         </div>
         <div class="six columns">
           <ul class="link-list right">
-            <li><a href="#">Last article</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Archive</a></li>
+            <li><a href="#">Impressum (?)</a></li>
+            <li><a href="#">Contact (?)</a></li>
+            <li><a href="#">Not Used</a></li>
+            <li><a href="#">Not Used</a></li>
           </ul>
         </div>
       </div>
