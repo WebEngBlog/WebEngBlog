@@ -1,6 +1,8 @@
 <script type="text/javascript">
 	$(function() {
-		{
+		{	
+			$("#search-box").width($("#search").width());
+			
 			var oldText = "";
 			$("#search").keyup(function() {
 				var text = $(this).val();

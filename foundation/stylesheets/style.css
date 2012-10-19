@@ -28,20 +28,17 @@ fieldset.login_border {
 
 #search {
 	margin-bottom: 0px;
+	width: 100%;
 }
 
 #search-box {
 	margin-top: -1px;
-	margin-bottom: 0px;
 	visibility: visible;
-	width: 100%;
+	position: absolute;
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
 td.search-result {
 	padding: 6px;
-}
-
-#search-container {
-	max-height: 100px;
-	overflow: auto;
 }
