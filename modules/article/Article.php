@@ -36,7 +36,7 @@ class Article extends Modul {
 		if (!is_int($author)){
 			throw new InvalidArgumentException($tag ." is not a string");
 		}
-		return R::find("article", "author == '" . $author . "'");
+		return R::find("article", "author LIKE '" . $author . "'");
 	}
 }
 

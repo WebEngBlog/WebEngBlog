@@ -31,7 +31,8 @@ foreach ($posts as $article) {
 }
 ?>
 <?php
-} elseif (isset($_GET["author"]) && $_GET["autor"] > 0) {
+// && ((int) $_GET["autor"]) > 0
+} elseif (isset($_GET["author"])) {
 
 $posts = Modul::loadModul("article", ROOT)->getAllArticleWithAuthor((int) $_GET[author]);
 
