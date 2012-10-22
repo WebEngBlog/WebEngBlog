@@ -22,7 +22,7 @@ class System {
 	}
 	
 	public static function isDebugging() {
-		return false;
+		return true;
 	}
 	
 	public static function getIp() {
@@ -54,11 +54,21 @@ class System {
 			$display = $default;
 		}
 		
-		try {
+/*		try {
 			Modul::loadModul($display, $dir)->display();
 		} catch (Exception $e) {
 			echo $display ." not found";
 		}
+*/
+		$moduls = explode(';', $display);
+
+	    foreach ($moduls as $modul) {
+			try {
+				Modul::loadModul($modul, $dir)->display();
+			} catch (Exception $e) {
+				echo $modul ." not found";
+			}
+	    }
 	}
 }
 
