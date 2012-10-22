@@ -153,8 +153,8 @@ if (UserManagement::isLoggedIn()) {
         </div>
         <div class="six columns">
           <ul class="link-list right">
-            <li><a href="?display=about">About</a></li>
-            <li><a href="?display=contact">Contact</a></li>
+            <li><a href="../index.php?display=about">About</a></li>
+            <li><a href="../index.php?display=contact">Contact</a></li>
           </ul>
         </div>
       </div>
