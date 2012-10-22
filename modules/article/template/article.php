@@ -27,36 +27,15 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 <?php
 		}
 	?></article><?php 
-}
-?>
-<?php
-// && ((int) $_GET["autor"]) > 0
-} elseif (isset($_GET["author"])) {
-
-$posts = Modul::loadModul("article", ROOT)->getAllArticleWithAuthor((int) $_GET[author]);
-	?><article><?php
-
-	if ($article->id > 0) {
-		$article->content = str_replace("\n", "<br>", $article->content);	
-		?><h3><a href="#"><?php echo $article->title; ?></a></h3>
-		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
-		<p><?php echo $article->content; ?></p><?php
-		
-		$tags = explode(";", $article->tags);
-		foreach ($tags as $tag) {
-			?><a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a><?php
-		}
-	} else {
-		?><h5>No article was found</h5><?php
-	}
-	?></article><?php
+	
 } else {
 	if (isset($_GET["tag"])) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithTag($_GET["tag"]);
 		?><h5>All articles with tag: "<?php echo $_GET["tag"]; ?>"</h5><?php 
-	} elseif (isset($_GET["author"]) && $_GET["autor"] > 0) {
+	} elseif (isset($_GET["author"])) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithAuthor((int) $_GET["author"]);
-		?><h5>All articles of author: "<?php echo $_GET["search"]; ?>"</h5><?php
+		$user = R::load("user", (int) $_GET["author"]);
+		?><h5>All articles of author: "<?php echo $user->fullname; ?>"</h5><?php
 	} elseif (isset($_GET["search"]) && trim($_GET["search"]) !== "") {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithSearch($_GET["search"]);
 		?><h5>All search results for: "<?php echo $_GET["search"]; ?>"</h5><?php
