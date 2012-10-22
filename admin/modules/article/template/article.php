@@ -17,7 +17,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 ?>
 
 <article>
-	<h3>Edit Article</h3>
+	<h3>Edit Article</h3><br>
 	<form action="" method="post">
 		<label id="lbl_title" class="title_label" for="title">Title</label><br>
 		<input id="in_title" class="input_field" type="text" name="title" value="<?php echo $article->title; ?>" /><br>
@@ -37,7 +37,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 ?>
 
 <article>
-	<h3>Delete Article</h3>
+	<h3>Delete Article</h3><br>
 	<form action="" method="post">
 		<p>Do you really want to delete the article?</p>
 		<input id="btn_delete" type="submit" class="radius medium button" value="Delete" />
@@ -52,7 +52,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 ?>
 
 <article>
-	<h3>Create Article</h3>
+	<h3>Create Article</h3><br>
 	<form action="" method="post">
 		<label id="lbl_title" class="title_label" for="title">Titel</label><br>
 		<input id="in_title" class="input_field" type="text" name="title" /><br>

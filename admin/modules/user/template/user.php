@@ -14,9 +14,9 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 ?>
 
 <article>
-	<h3>Change Password</h3>
+	<h3>Change Password</h3><br>
 	<form action="" method="post">
-		<h5>User: <?php echo $user->name; ?></h5>
+		<h5>User: <?php echo $user->name; ?></h5><br>
 		<label id="lbl_oldpassword" class="edit_label" for="password">Old Password</label>
 		<input id="in_oldpassword" class="edit_field" type="password" name="oldpassword" /><br>
 		<label id="lbl_newpassword" class="edit_label" for="password">New Password</label>
@@ -33,7 +33,7 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 ?>
 
 <article>
-	<h3>Delete User</h3>
+	<h3>Delete User</h3><br>
 	<form action="" method="post">
 		<p>Do you really want to delete the user?</p>
 		<input id="btn_delete" type="submit" class="radius medium button" value="Delete" />
@@ -48,7 +48,7 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 ?>
 
 <article>
-	<h3>Register</h3>
+	<h3>Register</h3><br>
 	<form action="" method="post">
 		<label id="lbl_username" class="register_label" for="username">Username</label>
 		<input id="in_username" class="input_field" type="text" name="username" /><br>
