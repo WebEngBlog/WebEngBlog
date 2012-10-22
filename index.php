@@ -64,8 +64,6 @@ $_POST = System::clean($_POST);
       <ul class="nav-bar">
         <li><a href="index.php">Home</a></li>
         <li><a href="admin/index.php">Admin Area</a></li>
-        <li><a href="#">Not Used</a></li>
-        <li><a href="#">Not Used</a></li>
       </ul>
     </div>
   </div>

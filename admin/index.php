@@ -133,7 +133,7 @@ if (UserManagement::isLoggedIn()) {
         <?php Modul::loadModul("tag", ROOT)->display(); ?>
       </div>
       -->
-      
+
     </aside>
 
     <!-- End Sidebar -->

@@ -25,8 +25,8 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
     	<textarea id="in_content" class="input_field" name="content" cols="50" rows="10"><?php echo $article->content; ?></textarea><br>
 		<label id="lbl_tags" class="tag_label" for="tags">Tags</label><br>
 		<input id="in_tags" class="input_field" type="text" name="tags" value="<?php echo $article->tags; ?>" /><br>
-		<input id="btn_save" type="submit" name="save" value="Save" />
-		<a href="?display=article"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input id="btn_save" type="submit" class="radius medium button" value="Save" />
+		<a href="?display=article"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="edit" value="true" />
 	</form>
@@ -40,8 +40,8 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 	<h3>Delete Article</h3>
 	<form action="" method="post">
 		<p>Do you really want to delete the article?</p>
-		<input id="btn_delete" type="submit" name="delete" value="Delete" />
-		<a href="?display=article"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input id="btn_delete" type="submit" class="radius medium button" value="Delete" />
+		<a href="?display=article"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="delete" value="true" />
 	</form>
@@ -60,8 +60,8 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
     	<textarea id="in_content" class="input_field" name="content" cols="50" rows="10"></textarea><br>
 		<label id="lbl_tags" class="tag_label" for="tags">Tags</label><br>
 		<input id="in_tags" class="input_field" type="text" name="tags" /><br>
-		<input id="btn_save" type="submit" name="save" value="Save" />
-		<a href="?display=article"><input id="btn_back" type="button" name="back" value="Back" /></a>
+		<input id="btn_save" type="submit" class="radius medium button" value="Save" />
+		<a href="?display=article"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="create" value="true" />
 	</form>
