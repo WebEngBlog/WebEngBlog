@@ -127,11 +127,13 @@ if (UserManagement::isLoggedIn()) {
       </ul>
       -->
 
+      <!--
       <div class="panel">
         <h5>Tags</h5>
         <?php Modul::loadModul("tag", ROOT)->display(); ?>
       </div>
-
+      -->
+      
     </aside>
 
     <!-- End Sidebar -->

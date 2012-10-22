@@ -13,7 +13,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 
 $posts = Modul::loadModul("comment", ROOT)->getComments((int) $_GET["id"]);
 ?>
-	<h2>Comment</h2>
+	<h5>Comment</h5>
 
 <?php
 	foreach ($posts as $value) {
