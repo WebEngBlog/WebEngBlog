@@ -4,7 +4,7 @@
 * 
 * @author 		Lukas Berg, Tobias Röding
 * @copyright	@author, 14.10.2012
-* @version		0.9
+* @version		1.1
 *******************************************************************************/
 ?>
 
@@ -15,19 +15,21 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 	$article = Modul::loadModul("article", ROOT)->getArticle((int) $_GET["id"]);
 	$user = R::load("user", $article->author);
 	$article->content = str_replace("\n", "<br>", $article->content);
-	?><article>
-		<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
-		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
-		<p><?php echo $article->content; ?></p>
+?>		
+		<article>
+			<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
+			<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
+			<p><?php echo $article->content; ?></p>
 <?php
-		$tags = explode(";", $article->tags);
-		foreach ($tags as $tag) {
+			$tags = explode(";", $article->tags);
+			foreach ($tags as $tag) {
 ?>
-			<a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a>
+				<a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a>
 <?php
-		}
-	?></article><?php 
-	
+			}
+?>		
+		</article>
+<?php
 } else {
 	if (isset($_GET["tag"])) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithTag($_GET["tag"]);
@@ -64,7 +66,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 			?></article><?php 
 		}
 	} else {
-		?><h6>No articles were found</h6><?php
+		?><h5>No articles were found</h5><?php
 	}
 }
 

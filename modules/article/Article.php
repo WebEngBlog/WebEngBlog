@@ -31,7 +31,6 @@ class Article extends Modul {
 		if (!is_int($author)) {
 			throw new InvalidArgumentException($author ." is not an int");
 		}
-		// return R::find("article", "author LIKE '" . $author . "'");
 		return R::find("article", "author = ?", array($author));
 	}
 	
