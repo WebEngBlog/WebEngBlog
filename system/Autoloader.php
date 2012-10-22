@@ -61,10 +61,11 @@ Autoloader::registerAutoload();
 include(ROOT.S."configuration.inc.php");
 
 if (System::isDebugging() === true) {
-	ini_set("display_errors", E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
-	R::debug(true);
+	ini_set("display_errors", true);
+	error_reporting(E_ALL);
+//	R::debug(true);
 } else {
-	ini_set("display_errors", 0);
+	ini_set("display_errors", false);
 	R::debug(false);
 }
 

@@ -34,7 +34,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 	if (isset($_GET["tag"])) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithTag($_GET["tag"]);
 		?><h5>All articles with tag: "<?php echo $_GET["tag"]; ?>"</h5><?php 
-	} elseif (isset($_GET["author"])) {
+	} elseif (isset($_GET["author"]) && $_GET["author"] > 0) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithAuthor((int) $_GET["author"]);
 		$user = R::load("user", (int) $_GET["author"]);
 		?><h5>All articles of author: "<?php echo $user->fullname; ?>"</h5><?php
@@ -59,10 +59,10 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 				$article->content = substr($article->content, 0, 400);
 			}
 			?><article>
-				<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
+				<h3><a href="?display=article;comment&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
 				<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
 				<?php echo $article->content; ?>
-				<?php echo '<a href="?display=article&id='. $article->id .'" >More &rarr;</a>'
+				<?php echo '<a href="?display=article;comment&id='. $article->id .'" >More &rarr;</a>'
 			?></article><?php 
 		}
 	} else {

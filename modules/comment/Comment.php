@@ -13,12 +13,12 @@ class Comment extends Modul {
 		
 	}
 
-	public function &getComments($id) {
+	public function getComments($id) {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
 
-		return R::find("comment", "article=?", array($id));	
+		return R::find("comment", "article = ?", array($id));	
 	}
 }
 
