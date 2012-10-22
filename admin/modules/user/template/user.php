@@ -22,7 +22,7 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 		<label id="lbl_newpassword" class="edit_label" for="password">New Password</label>
 		<input id="in_newpassword" class="edit_field" type="password" name="newpassword" /><br>
 		<input id="btn_edit" type="submit" class="radius medium button" value="Change Password" />
-		<a href="?display=user"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
+		<a href="?display=user" class="radius medium button">Back</a>
 		<input type="hidden" name="action" value="user" />
 		<input type="hidden" name="edit" value="true" />
 	</form>
@@ -37,7 +37,7 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 	<form action="" method="post">
 		<p>Do you really want to delete the user?</p>
 		<input id="btn_delete" type="submit" class="radius medium button" value="Delete" />
-		<a href="?display=user"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
+		<a href="?display=user" class="radius medium button">Back</a>
 		<input type="hidden" name="action" value="user" />
 		<input type="hidden" name="delete" value="true" />
 	</form>
@@ -57,7 +57,7 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 		<label id="lbl_password" class="register_label" for="password">Password</label><br>
 		<input id="in_password" class="input_field" type="password" name="password" /><br>
 		<input id="btn_register" type="submit" class="radius medium button" value="Register" />
-		<a href="?display=user"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
+		<a href="?display=user" class="radius medium button">Back</a>
 		<input type="hidden" name="action" value="user" />
 		<input type="hidden" name="register" value="true" />
 	</form>

@@ -26,7 +26,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 		<label id="lbl_tags" class="tag_label" for="tags">Tags</label><br>
 		<input id="in_tags" class="input_field" type="text" name="tags" value="<?php echo $article->tags; ?>" /><br>
 		<input id="btn_save" type="submit" class="radius medium button" value="Save" />
-		<a href="?display=article"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
+		<a href="?display=article" class="radius medium button">Back</a>
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="edit" value="true" />
 	</form>
@@ -41,7 +41,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 	<form action="" method="post">
 		<p>Do you really want to delete the article?</p>
 		<input id="btn_delete" type="submit" class="radius medium button" value="Delete" />
-		<a href="?display=article"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
+		<a href="?display=article" class="radius medium button">Back</a>
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="delete" value="true" />
 	</form>
@@ -61,7 +61,7 @@ $article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["id"]);
 		<label id="lbl_tags" class="tag_label" for="tags">Tags</label><br>
 		<input id="in_tags" class="input_field" type="text" name="tags" /><br>
 		<input id="btn_save" type="submit" class="radius medium button" value="Save" />
-		<a href="?display=article"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
+		<a href="?display=article" class="radius medium button">Back</a>
 		<input type="hidden" name="action" value="article" />
 		<input type="hidden" name="create" value="true" />
 	</form>
