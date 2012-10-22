@@ -50,11 +50,11 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 <article>
 	<h3>Register</h3><br>
 	<form action="" method="post">
-		<label id="lbl_username" class="register_label" for="username">Username</label>
+		<label id="lbl_username" class="register_label" for="username">Username</label><br>
 		<input id="in_username" class="input_field" type="text" name="username" /><br>
-		<label id="lbl_fullname" class="register_label" for="fullname">Fullname</label>
+		<label id="lbl_fullname" class="register_label" for="fullname">Fullname</label><br>
 		<input id="in_fullname" class="input_field" type="text" name="fullname" /><br>
-		<label id="lbl_password" class="register_label" for="password">Password</label>
+		<label id="lbl_password" class="register_label" for="password">Password</label><br>
 		<input id="in_password" class="input_field" type="password" name="password" /><br>
 		<input id="btn_register" type="submit" class="radius medium button" value="Register" />
 		<a href="?display=user"><input id="btn_back" type="button" class="radius medium button" value="Back" /></a>
@@ -62,7 +62,6 @@ $user = UserManagement::getUser((int) $_GET["id"]);
 		<input type="hidden" name="register" value="true" />
 	</form>
 </article>
-
 
 <?php
 } else {

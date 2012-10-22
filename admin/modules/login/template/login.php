@@ -1,13 +1,11 @@
 <article id="login">
-	<h3>Login</h3>
+	<h3>Login</h3><br>
 	<form action="index.php" method="post">
-		<fieldset class="login_border">
-			<label id="lbl_username" class="login_label" for="username">Benutzername</label>
-			<input id="in_username" class="input_field" type="text" name="username" />
-			<label id="lbl_password" class="login_label" for="password">Passwort</label>
-			<input id="in_password" class="input_field" type="password" name="password" />
-		</fieldset>
-		<input id="btn_login" type="submit" name="login" value="Anmelden" />
+		<label class="login_label" for="username">Benutzername</label><br>
+		<input class="input_field" type="text" name="username" /><br>
+		<label class="login_label" for="password">Passwort</label><br>
+		<input class="input_field" type="password" name="password" /><br>
+		<input type="submit" class="radius medium button" value="Anmelden" />
 		<input type="hidden" name="action" value="login" />
 	</form>
 </article>
