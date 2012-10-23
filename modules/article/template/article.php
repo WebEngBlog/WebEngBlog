@@ -25,7 +25,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 			
 		$tags = explode(";", $article->tags);
 		foreach ($tags as $tag) {
-			?><a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a><?php
+			?><a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?> </a><?php
 		}
 	}	
 } else {
