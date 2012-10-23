@@ -12,10 +12,11 @@ $classes = array(
 	"System" => "system".S."classes".S."System.php",
 	"Config" => "system".S."Config.php",
 	"Modul" => "modules".S."Modul.php",
-	"Object" => "system".S."classes".S."Object.php"
+	"Object" => "system".S."classes".S."Object.php",
+	"CommentManagement" => "system".S."classes".S."CommentManagement.php"
 );
 
 include(ROOT.S."system".S."framework".S."rb.php");
-R::setup("mysql:host=localhost;dbname=blog", "root", "root");
+R::setup("mysql:host=localhost;dbname=blog", "root", "");
 
 ?>

@@ -42,3 +42,7 @@ fieldset.login_border {
 td.search-result {
 	padding: 6px;
 }
+
+article.content {
+	margin-bottom: 17px;
+}
