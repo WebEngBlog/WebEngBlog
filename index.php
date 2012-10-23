@@ -16,6 +16,14 @@ include(ROOT.S.'system'.S.'Autoloader.php');
 $_GET = System::clean($_GET);
 $_POST = System::clean($_POST);
 
+if (isset($_POST["action"])) {
+	try {
+		Modul::loadModul($_POST["action"])->execute();
+	} catch (Exception $e) {
+		echo $e;
+	}
+}
+
 ?>
 
 <!DOCTYPE html>
