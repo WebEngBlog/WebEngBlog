@@ -19,7 +19,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 		$user = R::load("user", $article->author);
 		$article->content = str_replace("\n", "<br>", $article->content);
 
-		?><h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
+		?><h3><a href="?display=article;comment&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
 		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
 		<p><?php echo $article->content; ?></p><?php
 			
