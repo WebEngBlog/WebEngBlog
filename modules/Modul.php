@@ -47,8 +47,8 @@ class Modul extends Object {
 			throw new InvalidArgumentException($root . " is not a valid dir");
 		}
 
-		if (array_key_exists($name, self::$modules)) {
-			return self::$modules[$name];
+		if (array_key_exists($name, Modul::$modules)) {
+			return Modul::$modules[$name];
 		}
 
 		$class = ucfirst($name);
@@ -74,7 +74,7 @@ class Modul extends Object {
 			throw new InvalidArgumentException("'". $class ."' is not an instance of 'Modul'");
 		}
 
-		Modul::$modules[$class] = $modul;
+		Modul::$modules[$name] = $modul;
 
 		return $modul;
 	}

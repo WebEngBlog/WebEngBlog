@@ -6,30 +6,28 @@
 * @copyright	@author, 14.10.2012
 * @version		1.1
 *******************************************************************************/
-?>
 
-<?php
+?><article class="content"><?php
 
 if (isset($_GET["id"]) && $_GET["id"] > 0) {
 
 	$article = Modul::loadModul("article", ROOT)->getArticle((int) $_GET["id"]);
-	$user = R::load("user", $article->author);
-	$article->content = str_replace("\n", "<br>", $article->content);
-?>		
-		<article>
-			<h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
-			<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
-			<p><?php echo $article->content; ?></p>
-<?php
-			$tags = explode(";", $article->tags);
-			foreach ($tags as $tag) {
-?>
-				<a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a>
-<?php
-			}
-?>		
-		</article>
-<?php
+	
+	if ($article->id != $_GET["id"]) {
+		?><h5>No article with the given id was found</h5><?php
+	} else {
+		$user = R::load("user", $article->author);
+		$article->content = str_replace("\n", "<br>", $article->content);
+
+		?><h3><a href="?display=article&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
+		<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
+		<p><?php echo $article->content; ?></p><?php
+			
+		$tags = explode(";", $article->tags);
+		foreach ($tags as $tag) {
+			?><a href="?display=article&tag=<?php echo $tag; ?>"><?php echo $tag; ?></a><?php
+		}
+	}	
 } else {
 	if (isset($_GET["tag"])) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithTag($_GET["tag"]);
@@ -58,12 +56,10 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 			} else {
 				$article->content = substr($article->content, 0, 400);
 			}
-			?><article>
-				<h3><a href="?display=article;comment&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
+			?><h3><a href="?display=article;comment&id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
 				<h6>Written by <a href="?display=article&author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
-				<?php echo $article->content; ?>
-				<?php echo '<a href="?display=article;comment&id='. $article->id .'" >More &rarr;</a>'
-			?></article><?php 
+				<p><?php echo $article->content; ?>
+				<a href="?display=article;comment&id=<?php echo $article->id; ?>">More &rarr;</a></p><?php 
 		}
 	} else {
 		?><h5>No articles were found</h5><?php
@@ -71,3 +67,5 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 }
 
 ?>
+
+</article>
