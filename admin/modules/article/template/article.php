@@ -77,8 +77,9 @@ $posts = Modul::loadModul("article", ADMIN)->getAll();
 	
 	<table>
 		<colgroup>
-    		<col width="200">
+    		<col width="150">
     		<col width="100">
+    		<col width="150">
     		<col width="100">
     		<col width="100">
   		</colgroup>
@@ -89,6 +90,7 @@ $posts = Modul::loadModul("article", ADMIN)->getAll();
 		<tr>
 			<td><?php echo $value->title; ?></td>
 			<td><?php echo $user->name; ?></td>
+			<td><a href="?display=comment&article=<?php echo $value->id ?>">Show Comments</a></td>
 			<td><a href="?display=article&func=edit&id=<?php echo $value->id ?>">Edit</a></td>
 			<td><a href="?display=article&func=delete&id=<?php echo $value->id ?>">Delete</a></td>
 		</tr>
