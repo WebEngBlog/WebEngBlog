@@ -67,7 +67,7 @@ if (isset($_POST["action"])) {
 
   <div class="row">
     <div class="twelve columns">
-      <h1>Welcome <small>This is our blog. Still in progress.</small>
+      <h1>Welcome <small>This is our blog. Still in progress.</small></h1>
       
       <ul class="nav-bar">
         <li><a href="index.php">Home</a></li>

@@ -22,8 +22,8 @@ $_POST = System::clean($_POST);
 if (isset($_POST["action"])) {
 	Modul::loadModul($_POST["action"], API)->execute();
 }
-if (isset($_GET["display"])) {
-	Modul::loadModul($_GET["display"], API)->display();
+if (isset($_POST["display"])) {
+	Modul::loadModul($_POST["display"], API)->display();
 }
 
 ?>

@@ -13,10 +13,10 @@
 				}
 
 				if (text != oldText) {
-					$.post("api/index.php?display=search", {search: text}, function(data) {
+					$.post("api/index.php", {display: "search", search: text}, function(data) {
 						$("#search-box").empty();
 						$.each($.parseJSON(data), function (key, value) {
-							$("#search-box").append("<tr><td class=\"search-result\"><a href=\"?display=article;comment&id="
+							$("#search-box").append("<tr><td class=\"search-result\"><a href=\"?display=article;comment&amp;id="
 									+ value.id + "\">" + value.title + "</a></td></tr>");	
 						});
 					});	
