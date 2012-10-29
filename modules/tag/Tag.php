@@ -12,8 +12,9 @@ class Tag extends Modul {
 		
 		$tag_count = array();
 		foreach ($articles as $article) {
-			$tags = explode(";", $article->tags);
+			$tags = explode(";", html_entity_decode($article->tags));
 			foreach ($tags as $tag) {
+				$tag = htmlentities($tag);
 				if (array_key_exists($tag, $tag_count)) {
 					$tag_count[$tag]++;
 				} else {

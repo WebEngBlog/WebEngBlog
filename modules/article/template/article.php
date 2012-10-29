@@ -23,8 +23,9 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 		<h6>Written by <a href="?display=article&amp;author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
 		<p><?php echo $article->content; ?></p><?php
 			
-		$tags = explode(";", $article->tags);
+		$tags = explode(";", html_entity_decode($article->tags));
 		foreach ($tags as $tag) {
+			$tag = htmlentities($tag);
 			?><a href="?display=article&amp;tag=<?php echo $tag; ?>"><?php echo $tag; ?> </a><?php
 		}
 	}	
