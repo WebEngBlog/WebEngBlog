@@ -1,9 +1,10 @@
 <script type="text/javascript">
 	$(function() {
-		{	
+		{
+			var oldText = "";
+			
 			$("#search-box").width($("#search").width());
 			
-			var oldText = "";
 			$("#search").keyup(function() {
 				var text = $(this).val();
 
@@ -24,12 +25,21 @@
 					oldText = text;
 				}
 			});
+
+			$("#search").focusin(function() {
+				$("#search-box").css("visibility", "visible");
+			});
+
+			$("#search").focusout(function() {
+				$("#search-box").css("visibility", "hidden");
+			});
 		}
 	});
 </script>
 <form action="index.php" method="get">
-	<input id="search" class="" type="text" name="search" autocomplete="off" />
-	<input type="hidden" name="display" value="article" />
+	<input id="search" class="" type="text" name="search"
+		autocomplete="off" /> <input type="hidden" name="display"
+		value="article" />
 	<table id="search-box"></table>
 </form>
 <?php
