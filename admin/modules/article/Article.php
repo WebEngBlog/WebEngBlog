@@ -64,6 +64,12 @@ class Article extends Modul {
 			throw new InvalidArgumentException($id ." is not an int");
 		}
 		$article = R::load("article", $id);
+		$comments = Modul::loadModul("comment", ADMIN)->getAllCommentsWithArticleID($id);
+
+		foreach ($comments as $comment ) {
+			R::trash($comment);
+		}
+
 		return R::trash($article);
 	}
 }

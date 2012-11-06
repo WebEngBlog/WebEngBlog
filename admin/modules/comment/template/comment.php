@@ -28,9 +28,10 @@ $comment = Modul::loadModul("comment", ADMIN)->getComment((int) $_GET["id"]);
 } elseif(isset($_GET["article"]) && $_GET["article"] > 0) {
 	
 $comments = Modul::loadModul("comment", ADMIN)->getAllCommentsWithArticleID((int) $_GET["article"]);
+$article = Modul::loadModul("article", ADMIN)->getArticle((int) $_GET["article"]);
 ?>
 <article>
-	<h5>Comments for the article: <?php echo $_GET["article"]; ?></h5> 
+	<h5>Comments for the article: <?php echo $article->title; ?></h5> 
 	<table>
 		<colgroup>
     		<col width="100">

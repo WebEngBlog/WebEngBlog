@@ -89,7 +89,20 @@ class UserManagement {
 
 	public static function delete($id){
 		$user = UserManagement::getUser($id);
+
+		$articles = R::find("article", "author = ?", array($id));
 		
+		foreach ($articles as $article) {
+			
+			$comments = R::find("comment", "article = ? ORDER BY created DESC", array($article));
+
+			foreach ($comments as $comment ) {
+				R::trash($comment);
+			}
+
+			R::trash($article);
+		}
+
 		return R::trash($user);
 	}
 
