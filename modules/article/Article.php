@@ -2,13 +2,16 @@
 /*******************************************************************************
 * Article modul for the frontend
 * 
-* @author 		Lukas Berg, Tobias Röding
-* @copyright	@author, 14.10.2012
-* @version		0.9
+* @version		1.0
 *******************************************************************************/
 
 class Article extends Modul {
 	
+	/**
+	 * Get an article from the database with the specified id 
+	 *
+	 * @param integer $id Id of the searched article
+	 */
 	public function getArticle($id) {
 		if (!is_int($id)) {
 			throw new InvalidArgumentException($id ." is not an int");
@@ -16,10 +19,18 @@ class Article extends Modul {
 		return R::load("article", $id);
 	}
 
+	/**
+	 * Get all articles from the database 
+	 */
 	public function getAllArticles() {
 		return R::findAll("article", " ORDER BY creation_date DESC");	
 	}
 
+	/**
+	 * Get all articles with the specified tag from the database 
+	 *
+	 * @param String $tag Tag to search for
+	 */
 	public function getAllArticlesWithTag($tag) {
 		if (!is_string($tag)){
 			throw new InvalidArgumentException($tag ." is not a string");
@@ -27,6 +38,11 @@ class Article extends Modul {
 		return R::find("article", "tags LIKE ?", array("%". $tag ."%"));
 	}
 
+	/**
+	 * Get all articles with the specified author from the database 
+	 *
+	 * @param String $author Author to search for
+	 */
 	public function getAllArticlesWithAuthor($author) {
 		if (!is_int($author)) {
 			throw new InvalidArgumentException($author ." is not an int");
@@ -34,6 +50,11 @@ class Article extends Modul {
 		return R::find("article", "author = ?", array($author));
 	}
 	
+	/**
+	 * Get all articles with the specified search string from the database 
+	 *
+	 * @param String $search Arbitrary String to search for
+	 */
 	public function getAllArticlesWithSearch($search) {
 		if (!is_string($search)){
 			throw new InvalidArgumentException($search ." is not a string");

@@ -1,10 +1,8 @@
 <?php
 /*******************************************************************************
 * User class for mangagin the users
-* 
-* @author 		Lukas Berg, Tobias Röding
-* @copyright	@author, 14.10.2012
-* @version		0.9
+*
+* @version		1.0
 *******************************************************************************/
 
 class UserManagement {

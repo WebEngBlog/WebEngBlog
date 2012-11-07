@@ -2,9 +2,7 @@
 /*******************************************************************************
 * config class for specifying the classes the Autoloader should load
 * 
-* @author 		Lukas Berg
-* @copyright	Lukas Berg, 14.10.2012
-* @version		0.9
+* @version		1.0
 *******************************************************************************/
 
 
