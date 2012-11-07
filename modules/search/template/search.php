@@ -26,13 +26,15 @@
 				}
 			});
 
-			$("#search").focusin(function() {
+		/*	$("#search").focusin(function() {
 				$("#search-box").css("visibility", "visible");
 			});
+		*/
 
-			$("#search").focusout(function() {
+		/*	$("#search").focusout(function() {
 				$("#search-box").css("visibility", "hidden");
 			});
+		*/
 		}
 	});
 </script>

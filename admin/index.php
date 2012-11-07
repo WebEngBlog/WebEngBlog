@@ -111,32 +111,6 @@ if (UserManagement::isLoggedIn()) {
 
     <!-- End Main Content -->
 
-
-    <!-- Sidebar -->
-
-    <aside class="three columns">
-
-      <!--
-      <h5>Categories</h5>
-      <ul class="side-nav">
-        <li><a href="#">News</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Fun</a></li>
-        <li><a href="#">Weasels</a></li>
-      </ul>
-      -->
-
-      <!--
-      <div class="panel">
-        <h5>Tags</h5>
-        <?php Modul::loadModul("tag", ROOT)->display(); ?>
-      </div>
-      -->
-
-    </aside>
-
-    <!-- End Sidebar -->
   </div>
 
   <!-- End Main Content and Sidebar -->
@@ -165,3 +139,13 @@ if (UserManagement::isLoggedIn()) {
 
 </body>
 </html>
+
+<?php
+
+if (System::isDebugging()) {
+	System::printErrors();
+	?><br /><?php
+	System::printQueries();
+}
+
+?>

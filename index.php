@@ -2,9 +2,7 @@
 /*******************************************************************************
 * index.php for the frontend
 * 
-* @author 		Lukas Berg, Tobias Röding
-* @copyright	@author, 14.10.2012
-* @version		0.9
+* @version		1.0
 *******************************************************************************/
 
 
@@ -149,3 +147,13 @@ if (isset($_POST["action"])) {
 
 </body>
 </html>
+
+<?php 
+
+if (System::isDebugging()) {
+	System::printErrors();
+	?><br /><?php
+	System::printQueries();
+}
+
+?>

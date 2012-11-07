@@ -116,7 +116,7 @@ class UserManagement {
 		return R::findOne("user", "name = ?", array($value));
 	}
 
-	private function getHash($text) {
+	public static function getHash($text) {
 		return hash("md5", $text);
 	}
 
