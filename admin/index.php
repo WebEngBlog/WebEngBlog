@@ -25,8 +25,7 @@ if (isset($_POST["action"])) {
 }
 
 if (isset($_GET["logout"])) {
-  UserManagement::logout();
-  //echo '<script type="text/javascript">window.location.href="../index.php";</script>';  
+  UserManagement::logout();  
 }
 
 ?>
@@ -78,7 +77,9 @@ if (isset($_GET["logout"])) {
         <li><a href="../index.php">Home</a></li>
         <li><a href="?display=article">Articles</a></li>
         <li><a href="?display=user">Users</a></li>
-        <li><a href="?logout=true">Logout</a></li>
+        <?php if (UserManagement::isLoggedIn()) {
+        	?><li><a href="?logout=true">Logout</a></li><?php
+        } ?>
       </ul>
     </div>
   </div>
