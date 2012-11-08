@@ -16,8 +16,6 @@ class Article extends Modul {
 			self::deleteArticle((int) $_GET["id"]);
 		}
 		echo '<script type="text/javascript">window.location.href="?";</script>';
-		//header doesn't work here, headers already sent
-		//header("Location: ?");
 	}
 
 	/**

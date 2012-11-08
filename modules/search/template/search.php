@@ -2,7 +2,7 @@
 	$(function() {
 		{
 			var oldText = "";
-			
+			//Prepare the width of the results
 			$("#search-box").width($("#search").width());
 			
 			$("#search").keyup(function() {
@@ -13,6 +13,7 @@
 					$("#search-box").empty();
 				}
 
+				//Display the results if a new search string was entered
 				if (text != oldText) {
 					$.post("api/index.php", {display: "search", search: text}, function(data) {
 						$("#search-box").empty();

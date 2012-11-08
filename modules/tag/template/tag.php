@@ -1,7 +1,13 @@
 <?php
+/*******************************************************************************
+ * The template to display the tags
+ *
+ * @version		1.0
+ *******************************************************************************/
 
 $tags = Modul::loadModul("tag")->getTags();
 
+//Define the space between the tags font size defined by count
 $min = min($tags);
 $max = max($tags);
 

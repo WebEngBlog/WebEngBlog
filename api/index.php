@@ -1,10 +1,8 @@
 <?php 
 /*******************************************************************************
-* index.php for the backend (admin area)
+* index.php for the api
 * 
-* @author 		Lukas Berg, Tobias Röding
-* @copyright	@author, 14.10.2012
-* @version		0.9
+* @version		1.0
 *******************************************************************************/
 
 define("S", DIRECTORY_SEPARATOR);

@@ -1,21 +1,22 @@
 <?php
 /*******************************************************************************
-* article template for the frontend
-* 
-* @author 		Lukas Berg, Tobias Röding
-* @copyright	@author, 14.10.2012
-* @version		1.1
-*******************************************************************************/
+ * article template for the frontend
+ *
+ * @version		1.1
+ *******************************************************************************/
 
 ?><article class="content"><?php
 
+//Check if one article is displayed or more
 if (isset($_GET["id"]) && $_GET["id"] > 0) {
-
+	//Load the article
 	$article = Modul::loadModul("article", ROOT)->getArticle((int) $_GET["id"]);
 	
+	//Check if id of the article is valid
 	if ($article->id != $_GET["id"]) {
 		?><h5>No article with the given id was found</h5><?php
 	} else {
+		//Display the article
 		$user = R::load("user", $article->author);
 		$article->content = str_replace("\n", "<br>", $article->content);
 
@@ -30,6 +31,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 		}
 	}	
 } else {
+	//Get the artciles specified by the parameters
 	if (isset($_GET["tag"])) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticlesWithTag($_GET["tag"]);
 		?><h5>All articles with tag: "<?php echo $_GET["tag"]; ?>"</h5><?php 
@@ -44,10 +46,14 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 		$posts = Modul::loadModul("article", ROOT)->getAllArticles();
 	}
 
+	//Display the preview of the articles
 	if (count($posts) > 0) {
 		foreach ($posts as $article) {
 			$user = R::load("user", $article->author);
+			//Display line breaks
 			$article->content = str_replace("\n", "<br>", $article->content);
+			
+			//Cut the article after 3 line breaks or after 400 characters
 			if(substr_count($article->content, "<br>") > 3) {
 				$offset = 0;
 				for($i = 1; $i <= 3; $i++) {
@@ -57,6 +63,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0) {
 			} else {
 				$article->content = substr($article->content, 0, 400);
 			}
+			//Display the article
 			?><h3><a href="?display=article;comment&amp;id=<?php echo $article->id ?>"><?php echo $article->title; ?></a></h3>
 				<h6>Written by <a href="?display=article&amp;author=<?php echo $user->id; ?>"><?php echo $user->fullname; ?></a> on <?php echo $article->creation_date; ?>.</h6>
 				<p><?php echo $article->content; ?>

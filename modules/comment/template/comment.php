@@ -1,18 +1,18 @@
 <?php
 /*******************************************************************************
-* comment template for the frontend
-* 
-* @author 		Tobias Röding
-* @copyright	@author, 14.10.2012
-* @version		0.9
-*******************************************************************************/
+ * comment template for the frontend
+ * 
+ * @version		1.0
+ *******************************************************************************/
 
+//Check that all arguments are given and the article exists
 if (isset($_GET["id"]) && $_GET["id"] > 0 && R::load("article", $_GET["id"])->id == $_GET["id"]) {	
 	?><article id="comment" class="content"><?php
 	
 	$comment = Modul::loadModul("comment", ROOT);
 	$posts = $comment->getComments((int) $_GET["id"]);	
 	
+	//Panel to write a comment
 	?><div class="panel"><?php
 		if ($comment->getError() !== false) {
 			?><p><label class="error"><?php echo $comment->getError(); ?></label></p><?php
@@ -27,6 +27,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0 && R::load("article", $_GET["id"])->id
 		
 	<div id="comments"><?php
 
+	//Display all comments
 	foreach ($posts as $value) {		
 		if ($value->id > 0) {
 			?><div class="panel">
@@ -45,7 +46,9 @@ if (isset($_GET["id"]) && $_GET["id"] > 0 && R::load("article", $_GET["id"])->id
 		var since = "<?php echo count($posts) == 0 ? "1970-01-01 09:00:00" : array_shift($posts)->created; ?>";
 
 		{var old = $("#btn_post");
+		//Replace button that form is not sent
 		old.clone().attr("type", "button").insertBefore(old).click(function() {
+			//Check that all arguments are correct
 			var author = $.trim($("#in_author").val());
 
 			if (author.length == 0) {
@@ -68,7 +71,8 @@ if (isset($_GET["id"]) && $_GET["id"] > 0 && R::load("article", $_GET["id"])->id
 				alert("Please insert some content");
 				return;
 			}
-			
+
+			//Create the post
 			$.post("api/index.php", {display: "comment", article: article, 
 				author: author, content: content}, function(data) {
 					if (data == 1) {
@@ -83,6 +87,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0 && R::load("article", $_GET["id"])->id
 		});
 		old.remove();}
 
+		//Display all new posts since the last update
 		function updateComments() {
 			$.post("api/index.php", {display: "comment", article: article, 
 				since: since}, function(data) {
@@ -102,7 +107,7 @@ if (isset($_GET["id"]) && $_GET["id"] > 0 && R::load("article", $_GET["id"])->id
 				}
 			);
 		}
-
+		//Get all new posts erever 5seconds
 		setInterval(function(){updateComments();}, 5000);
 	});
 		
